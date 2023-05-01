@@ -1,9 +1,19 @@
 <script setup>
-import TheWelcome from '../components/TheWelcome.vue'
+import HomeHeader from '@/components/HomeHeader.vue';
+import ContactComponent from '@/components/home/ContactComponent.vue';
+import TeamComponent from '@/components/home/TeamComponent.vue';
+import AboutComponent from '@/components/home/AboutComponent.vue';
+import BicycleTypesComponent from '../components/home/BicycleTypesComponent.vue';
 </script>
 
 <template>
-  <main>
-    <TheWelcome />
-  </main>
+  <HomeHeader />
+  <AboutComponent />
+  <TeamComponent />
+  <ContactComponent />
+  <BicycleTypesComponent />
 </template>
+
+<script>
+export default {};
+</script>
