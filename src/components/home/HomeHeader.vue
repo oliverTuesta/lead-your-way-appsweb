@@ -1,16 +1,14 @@
 <template>
-  <Toolbar>
+  <Toolbar class="p-1">
     <template #start>
-      <Button label="New" icon="pi pi-plus" class="mr-2" />
-      <Button label="Upload" icon="pi pi-upload" severity="success" />
-      <i class="pi pi-bars p-toolbar-separator mr-2" />
-      <SplitButton label="Save" icon="pi pi-check" :model="items" severity="warning"></SplitButton>
+      <a href="/" class="text-lg font-bold mx-2 no-underline"> Lead Your Way </a>
     </template>
 
     <template #end>
-      <Button icon="pi pi-search" class="mr-2" />
-      <Button icon="pi pi-calendar" severity="success" class="mr-2" />
-      <Button icon="pi pi-times" severity="danger" />
+      <a href="/login"> <Button class="mr-2 text-bold">Login</Button> </a
+      ><a href="/signup">
+        <Button class="mr-2" severity="warning">Sign up</Button>
+      </a>
     </template>
   </Toolbar>
 </template>
