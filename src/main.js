@@ -19,6 +19,7 @@ import RadioButton from 'primevue/radiobutton';
 import SplitButton from 'primevue/splitbutton';
 import Toolbar from 'primevue/toolbar';
 import Card from 'primevue/card';
+import Rating from 'primevue/rating';
 
 import i18n from './locales/i18n';
 
@@ -40,6 +41,7 @@ app.component('RadioButton', RadioButton);
 app.component('SplitButton', SplitButton);
 app.component('Toolbar', Toolbar);
 app.component('Card', Card);
+app.component('Rating', Rating);
 
 app.use(PrimeVue);
 app.use(i18n);
