@@ -3,7 +3,7 @@ import DeveloperCard from '@/components/home/DeveloperCard.vue';
 </script>
 
 <template>
-  <h2 class="text-center text-2xl">Meet Our Team</h2>
+  <h2 class="text-center text-2xl">{{$t('meet-our-team')}}</h2>
   <div class="card-container flex-wrap flex gap-4 justify-content-center">
     <DeveloperCard
       v-for="developer in developers"
@@ -22,19 +22,28 @@ export default {
       {
         name: 'Oliver Tuesta',
         role: 'CTO',
-        image: 'https://i.pinimg.com/564x/f9/19/54/f9195412cb2c7cb4de5a1d412299b2dd.jpg',
+        image: '/src/assets/img/Oliver.jpg',
       },
       {
         name: 'Lucas Ruiz',
         role: 'CEO',
-        image: 'https://i.pinimg.com/736x/6c/5d/5b/6c5d5bce6c2fbee5c2457ff94c197473.jpg',
+        image: '/src/assets/img/Lucas.jpg',
       },
       {
-        name: 'Leonel Messi',
-        role: 'Programador practicante',
-        image:
-          'https://img.asmedia.epimg.net/resizer/-R9iNsfOFBn6x1cROz6pji9PpTI=/360x0/cloudfront-eu-central-1.images.arcpublishing.com/diarioas/OJFDKNIX5ZCX5GQGPOVE46AROA.jpg',
+        name: 'Arnol Cáceres',
+        role: 'Technical Leader',
+        image: '/src/assets/img/Arnol.png',
+      },      
+      {
+        name: 'David Quito',
+        role: 'Frontend Developer',
+        image: '/src/assets/img/David.png',
       },
+      {
+        name: 'Leonel Alessandro',
+        role: 'Frontend Developer',
+        image: '/src/assets/img/Leonel.jpg',
+      }
     ],
   }),
 };
