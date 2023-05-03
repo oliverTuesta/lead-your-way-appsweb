@@ -3,7 +3,7 @@ import DeveloperCard from '@/components/home/DeveloperCard.vue';
 </script>
 
 <template>
-  <h2 class="text-center text-2xl">Meet Our Team</h2>
+  <h2 class="text-center text-2xl">{{$t('meet-our-team')}}</h2>
   <div class="card-container flex-wrap flex gap-4 justify-content-center">
     <DeveloperCard
       v-for="developer in developers"

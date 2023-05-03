@@ -16,7 +16,8 @@ const i18n = createI18n({
       'option2-content':'Son bicicletas que, o bien carecen de suspensión o tienen un sistema de amortiguación delantera en la horquilla. Normalmente el recorrido de esta suspensión es de menos de 120mm, ya que están pensadas para rodar a toda velocidad por pistas y tramos sin asfaltar sin grandes desniveles ni obstáculos pronunciados.',
       'option3':'Ciudad',
       'option3-content':'Una bicicleta urbana se caracteriza por tener componentes simples pero resistentes a cualquier picadura. Su mantenimiento es más sencillo y por lo tanto económico. En comparación con una bicicleta de montaña suelen ser más pesadas y no requieres suspensiones para los recorridos en la ciudad.',
-      },
+      'meet-our-team':'Conoce a nuestro equipo',
+    },
 
     en: {
       lyw: 'Lead Your Way',
@@ -30,7 +31,8 @@ const i18n = createI18n({
       'option2-content':'They are bicycles that either lack suspension or have a front suspension system in the fork. Normally the travel of this suspension is less than 120mm, since they are designed to roll at full speed on tracks and unpaved sections without large slopes or pronounced obstacles.',
       'option3':'City',
       'option3-content':'An urban bicycle is characterized by having simple but resistant components to any puncture. Its maintenance is simpler and therefore cheaper. Compared to a mountain bike they are usually heavier and do not require suspensions for city trips.',
-      },
+      'meet-our-team':'Meet our team',  
+    },
 
     fr: {
       lyw: 'Lead Your Way',
@@ -44,7 +46,8 @@ const i18n = createI18n({
       'option2-content':'Ce sont des vélos qui manquent de suspension ou qui ont un système de suspension avant dans la fourche. Normalement, le déplacement de cette suspension est inférieur à 120 mm, car ils sont conçus pour rouler à pleine vitesse sur des pistes et des sections non pavées sans grandes pentes ni obstacles prononcés.',
       'option3':'Ville',
       'option3-content':'Un vélo urbain se caractérise par des composants simples mais résistants à toute crevaison. Son entretien est plus simple et donc moins cher. Par rapport à un VTT, ils sont généralement plus lourds et ne nécessitent pas de suspensions pour les trajets en ville.',
-      },
+      'meet-our-team':'Rencontrez notre équipe',  
+    },
 
     ja: {
       lyw: 'Lead Your Way',
@@ -58,7 +61,8 @@ const i18n = createI18n({
       'option2-content':'それらはサスペンションを欠いているか、フォークに前部サスペンションシステムを備えています。通常、このサスペンションの移動は120mm未満であり、大きな傾斜や顕著な障害物のないトラックや未舗装の区間でフルスピードで走行するように設計されています。',
       'option3':'市',
       'option3-content':'都市の自転車は、どんなパンクにも耐えられるシンプルで丈夫なコンポーネントを持っていることを特徴としています。そのメンテナンスはよりシンプルで、したがってより安価です。マウンテンバイクと比較して、通常より重く、都市の旅行にはサスペンションは必要ありません。',
-      },
+      'meet-our-team':'私たちのチームに会いましょう', 
+    },
   },
 
   // something vue-i18n options here ...
