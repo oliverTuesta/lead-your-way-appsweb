@@ -6,11 +6,7 @@
           <h1 class="font-semibold text-900"><span class="text-orange-500">Lead</span> Your way</h1>
         </div>
         <p class="text-800">
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cupiditate perferendis rerum at
-          dolores voluptates vitae obcaecati magnam fugiat quas, illum dolore maxime tempore ipsum
-          suscipit facilis vero neque quod, inventore, assumenda est. Aliquid, eligendi. Laboriosam
-          optio natus atque aperiam facilis consequatur, laudantium alias vel! Possimus eveniet et
-          consectetur soluta modi?
+          {{ $t('about-content') }}
         </p>
       </div>
       <div class="card-container blue-container overflow-hidden p-5">
