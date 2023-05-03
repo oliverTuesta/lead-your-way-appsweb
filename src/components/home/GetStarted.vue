@@ -5,9 +5,9 @@
         <div class="text-orange-600 font-bold mb-3">
           <i class="pi pi-discord"></i>&nbsp;POWERED BY DISCORD
         </div>
-        <div class="text-900 font-bold text-5xl mb-3">Join Our Design Community</div>
+        <div class="text-900 font-bold text-5xl mb-3">{{$t('get-started-slogan')}}</div>
         <div class="text-700 text-2xl mb-5">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit numquam eligendi quos.
+          {{$t('get-started-content')}}
         </div>
         <a href="/signup"
           ><Button

@@ -17,6 +17,8 @@ const i18n = createI18n({
       'option3':'Ciudad',
       'option3-content':'Una bicicleta urbana se caracteriza por tener componentes simples pero resistentes a cualquier picadura. Su mantenimiento es más sencillo y por lo tanto económico. En comparación con una bicicleta de montaña suelen ser más pesadas y no requieres suspensiones para los recorridos en la ciudad.',
       'meet-our-team':'Conoce a nuestro equipo',
+      'get-started-slogan': 'Únete a nuestra comunidad',
+      'get-started-content': 'Crear una cuenta en Lead Your Way es muy fácil y te permitirá acceder a una amplia variedad de opciones de bicicletas. Además, al ser parte de nuestra comunidad, tendrás acceso a descuentos exclusivos, promociones especiales y podrás estar al tanto de las últimas novedades en el mundo de las bicicletas.',
     },
 
     en: {
@@ -31,7 +33,9 @@ const i18n = createI18n({
       'option2-content':'They are bicycles that either lack suspension or have a front suspension system in the fork. Normally the travel of this suspension is less than 120mm, since they are designed to roll at full speed on tracks and unpaved sections without large slopes or pronounced obstacles.',
       'option3':'City',
       'option3-content':'An urban bicycle is characterized by having simple but resistant components to any puncture. Its maintenance is simpler and therefore cheaper. Compared to a mountain bike they are usually heavier and do not require suspensions for city trips.',
-      'meet-our-team':'Meet our team',  
+      'meet-our-team':'Meet our team',
+      'get-started-slogan': 'Join our community',
+      'get-started-content': 'Creating an account on Lead Your Way is very easy and will allow you to access a wide variety of bicycle options. In addition, being part of our community, you will have access to exclusive discounts, special promotions and you will be able to keep up to date with the latest news in the world of bicycles.',
     },
 
     fr: {
@@ -46,7 +50,9 @@ const i18n = createI18n({
       'option2-content':'Ce sont des vélos qui manquent de suspension ou qui ont un système de suspension avant dans la fourche. Normalement, le déplacement de cette suspension est inférieur à 120 mm, car ils sont conçus pour rouler à pleine vitesse sur des pistes et des sections non pavées sans grandes pentes ni obstacles prononcés.',
       'option3':'Ville',
       'option3-content':'Un vélo urbain se caractérise par des composants simples mais résistants à toute crevaison. Son entretien est plus simple et donc moins cher. Par rapport à un VTT, ils sont généralement plus lourds et ne nécessitent pas de suspensions pour les trajets en ville.',
-      'meet-our-team':'Rencontrez notre équipe',  
+      'meet-our-team':'Rencontrez notre équipe',
+      'get-started-slogan': 'Rejoignez notre communauté',
+      'get-started-content': 'Créer un compte sur Lead Your Way est très facile et vous permettra d’accéder à une grande variété d’options de vélo. De plus, en faisant partie de notre communauté, vous aurez accès à des réductions exclusives, à des promotions spéciales et vous pourrez vous tenir au courant des dernières nouvelles dans le monde du vélo.',
     },
 
     ja: {
@@ -61,7 +67,9 @@ const i18n = createI18n({
       'option2-content':'それらはサスペンションを欠いているか、フォークに前部サスペンションシステムを備えています。通常、このサスペンションの移動は120mm未満であり、大きな傾斜や顕著な障害物のないトラックや未舗装の区間でフルスピードで走行するように設計されています。',
       'option3':'市',
       'option3-content':'都市の自転車は、どんなパンクにも耐えられるシンプルで丈夫なコンポーネントを持っていることを特徴としています。そのメンテナンスはよりシンプルで、したがってより安価です。マウンテンバイクと比較して、通常より重く、都市の旅行にはサスペンションは必要ありません。',
-      'meet-our-team':'私たちのチームに会いましょう', 
+      'meet-our-team':'私たちのチームに会いましょう',
+      'get-started-slogan': '私たちのコミュニティに参加してください',
+      'get-started-content': 'Lead Your Wayでアカウントを作成するのはとても簡単で、様々な自転車のオプションにアクセスできます。また、私たちのコミュニティの一員になることで、独占的な割引、特別なプロモーションにアクセスでき、自転車の世界の最新ニュースを知ることができます。', 
     },
   },
 
