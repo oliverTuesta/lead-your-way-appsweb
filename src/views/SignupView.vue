@@ -26,7 +26,7 @@
 
         <div class="flex align-items-center justify-content-between mb-6">
           <a class="font-medium no-underline ml-2 text-orange-500 text-right cursor-pointer">{{
-            $t('loginpage-forgot')
+            $t('signup-seepassword')
           }}</a>
         </div>
 

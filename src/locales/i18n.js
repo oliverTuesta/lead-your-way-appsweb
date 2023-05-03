@@ -30,6 +30,7 @@ const i18n = createI18n({
       'loginpage-forgot': 'Olvidé mi contraseña',
       'loginpage-repeatpassword': 'Repetir contraseña',
       'loginpage-message2': '¿Ya tienes una cuenta?',
+      'signup-seepassword': 'Ver contraseña',
     },
 
     en: {
@@ -58,6 +59,7 @@ const i18n = createI18n({
       'loginpage-forgot': 'Forgot my password',
       'loginpage-repeatpassword': 'Repeat password',
       'loginpage-message2': 'Already have an account?',
+      'signup-seepassword': 'See password',
     },
 
     fr: {
@@ -86,6 +88,7 @@ const i18n = createI18n({
       'loginpage-forgot': 'J\'ai oublié mon mot de passe',
       'loginpage-repeatpassword': 'Répéter le mot de passe',
       'loginpage-message2': 'Vous avez déjà un compte?',
+      'signup-seepassword': 'Voir le mot de passe',
     },
 
     ja: {
@@ -114,6 +117,7 @@ const i18n = createI18n({
       'loginpage-forgot': 'パスワードを忘れました',
       'loginpage-repeatpassword': 'パスワードを繰り返す',
       'loginpage-message2': 'すでにアカウントをお持ちですか？',
+      'signup-seepassword': 'パスワードを見る',
     },
   },
 
