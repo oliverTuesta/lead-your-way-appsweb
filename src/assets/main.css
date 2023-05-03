@@ -1,2 +1,6 @@
 @import './base.css';
 @import 'primeflex/primeflex.css';
+
+.max-w-50 {
+  max-width: 50%;
+}
