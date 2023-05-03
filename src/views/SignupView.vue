@@ -1,7 +1,7 @@
 <script setup></script>
 
 <template>
-  <h1>Login</h1>
+  <h1>Sign up</h1>
 </template>
 
 <script>

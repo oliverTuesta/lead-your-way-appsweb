@@ -1,7 +1,5 @@
-<script setup></script>
-
 <template>
-  <h1>Login</h1>
+  <p>Contact funca</p>
 </template>
 
 <script>

@@ -1,7 +1,7 @@
 <script setup></script>
 
 <template>
-  <h1>Login</h1>
+  <h1>Profile {{ $route.params.username }}</h1>
 </template>
 
 <script>
