@@ -18,6 +18,7 @@ import Checkbox from 'primevue/checkbox';
 import RadioButton from 'primevue/radiobutton';
 import SplitButton from 'primevue/splitbutton';
 import Toolbar from 'primevue/toolbar';
+import Card from 'primevue/card';
 
 import i18n from './locales/i18n';
 
@@ -38,6 +39,7 @@ app.component('Checkbox', Checkbox);
 app.component('RadioButton', RadioButton);
 app.component('SplitButton', SplitButton);
 app.component('Toolbar', Toolbar);
+app.component('Card', Card);
 
 app.use(PrimeVue);
 app.use(i18n);
