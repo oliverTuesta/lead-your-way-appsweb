@@ -5,9 +5,9 @@
     </template>
 
     <template #end>
-      <a href="/login"> <Button class="mr-2 text-bold">Login</Button> </a
+      <a href="/login"> <Button class="mr-2 text-bold">{{$t('login')}}</Button> </a
       ><a href="/signup">
-        <Button class="mr-2" severity="warning">Sign up</Button>
+        <Button class="mr-2" severity="warning">{{$t('register')}}</Button>
       </a>
     </template>
   </Toolbar>

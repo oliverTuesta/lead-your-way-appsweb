@@ -19,6 +19,8 @@ const i18n = createI18n({
       'meet-our-team':'Conoce a nuestro equipo',
       'get-started-slogan': 'Únete a nuestra comunidad',
       'get-started-content': 'Crear una cuenta en Lead Your Way es muy fácil y te permitirá acceder a una amplia variedad de opciones de bicicletas. Además, al ser parte de nuestra comunidad, tendrás acceso a descuentos exclusivos, promociones especiales y podrás estar al tanto de las últimas novedades en el mundo de las bicicletas.',
+      'login': 'Iniciar sesión',
+      'register': 'Registrarse',
     },
 
     en: {
@@ -36,6 +38,8 @@ const i18n = createI18n({
       'meet-our-team':'Meet our team',
       'get-started-slogan': 'Join our community',
       'get-started-content': 'Creating an account on Lead Your Way is very easy and will allow you to access a wide variety of bicycle options. In addition, being part of our community, you will have access to exclusive discounts, special promotions and you will be able to keep up to date with the latest news in the world of bicycles.',
+      'login': 'Login',
+      'register': 'Sign up',
     },
 
     fr: {
@@ -53,6 +57,8 @@ const i18n = createI18n({
       'meet-our-team':'Rencontrez notre équipe',
       'get-started-slogan': 'Rejoignez notre communauté',
       'get-started-content': 'Créer un compte sur Lead Your Way est très facile et vous permettra d’accéder à une grande variété d’options de vélo. De plus, en faisant partie de notre communauté, vous aurez accès à des réductions exclusives, à des promotions spéciales et vous pourrez vous tenir au courant des dernières nouvelles dans le monde du vélo.',
+      'login': 'Connexion',
+      'register': 'S’inscrire',
     },
 
     ja: {
@@ -70,6 +76,8 @@ const i18n = createI18n({
       'meet-our-team':'私たちのチームに会いましょう',
       'get-started-slogan': '私たちのコミュニティに参加してください',
       'get-started-content': 'Lead Your Wayでアカウントを作成するのはとても簡単で、様々な自転車のオプションにアクセスできます。また、私たちのコミュニティの一員になることで、独占的な割引、特別なプロモーションにアクセスでき、自転車の世界の最新ニュースを知ることができます。', 
+      'login': 'ログイン',
+      'register': '登録',
     },
   },
 
