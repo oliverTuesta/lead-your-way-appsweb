@@ -3,7 +3,7 @@
   <div class="search-container">
     <div class="search-wrapper">
       <InputText v-model="searchText" placeholder="Buscar bicicleta" />
-      <Button label="Buscar" class="search-button bg-orange-400" @click="search" />
+      <Button label="Buscar" class="search-button bg-orange-400"/>
     </div>
     <div class="cards-wrapper">
       <CardBicycle
@@ -20,7 +20,6 @@
 </template>
 
 <script>
-import Rating from 'primevue/rating';
 import InputText from 'primevue/inputtext';
 import Button from 'primevue/button';
 import CardBicycle from '../components/CardBicycle.vue';
