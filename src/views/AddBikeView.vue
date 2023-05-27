@@ -1,5 +1,6 @@
 <template>
-  <div class="card-primary">
+  <HeaderComponent />
+  <div class="card-primary mt-5">
     <TabView :scrollable="true">
       <TabPanel header="Información General">
         <div class="flex flex-column gap-5 mt-3 mb-5 align-items-center height">
@@ -101,6 +102,10 @@
   </div>
 </template>
 
+<script setup>
+import HeaderComponent from '../components/HeaderComponent.vue';
+</script>
+
 <script>
 export default {
   name: 'AddBikeView',
@@ -123,6 +128,6 @@ export default {
 }
 
 .height {
-  height: 70vh;
+  height: 65vh;
 }
 </style>
