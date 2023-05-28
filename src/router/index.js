@@ -39,6 +39,11 @@ const router = createRouter({
       name: 'addbike',
       component: AddBikeView,
     },
+    {
+      path: '/:pathMatch(.*)*',
+      name: 'NotFoundView',
+      component: () => import('../views/NotFoundView.vue'),
+    },
   ],
 });
 
