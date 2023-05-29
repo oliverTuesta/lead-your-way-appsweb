@@ -1,11 +1,5 @@
 <template>
   <HomeHeader />
-  <!--<div class="h-screen"></div>-->
-  <!--<div class="flex justify-center align-items-center">
-      
-    </div>
-    <div>
-    </div>-->
   <div class="notfound-container">
     <div class="full-width-container">
     <img src="../assets/img/bicycle.gif" alt="404" class="full-width-image" />
@@ -16,7 +10,7 @@
       {{ $t('NotFoundMessage') }}
     </p>
     <a href="/">
-      <Button class="buttonmain">{{ $t('NotFoundButton') }}</Button>
+      <Button class="button-nt">{{ $t('NotFoundButton') }}</Button>
     </a>
   </div>
   </div>
@@ -37,11 +31,18 @@ export default {
   margin-bottom:260px;
 }
 
-.buttonmain {
-  background-color: orange;
+.button-nt {
+  background-color: #E16F58;
   color: white;
-  border-color: orange;
+  border-color: #E16F58;
   margin-bottom: 20px;
+}
+
+.button-nt:enabled:hover {
+    background-color: #817E9F;
+    color: white;
+    border-color: #817E9F;
+    box-shadow: 0 0 0 0.2rem rgba(100, 100, 100, 0.2);
 }
 
 .full-width-container {

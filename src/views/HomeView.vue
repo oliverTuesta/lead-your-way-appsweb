@@ -26,4 +26,5 @@ export default {};
 .w-md {
   max-width: 80rem;
 }
+
 </style>
