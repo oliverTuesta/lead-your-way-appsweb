@@ -109,7 +109,7 @@
   };
   </script>
   
-  <style>
+  <style scoped>
   @import url('https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap');
   .container {
     display: flex;
