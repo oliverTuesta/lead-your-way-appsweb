@@ -5,6 +5,7 @@ import SignupView from '../views/SignupView.vue';
 import SearchView from '../views/SearchView.vue';
 import ProfileView from '../views/ProfileView.vue';
 import ProductPurchaseView from '../views/ProductPurchaseView.vue';
+import AddBikeView from '../views/AddBikeView.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -38,6 +39,16 @@ const router = createRouter({
       path: '/product-purchase',
       name: 'product-purchase',
       component: ProductPurchaseView,
+    },
+    {
+      path: '/addbike',
+      name: 'addbike',
+      component: AddBikeView,
+    },
+    {
+      path: '/:pathMatch(.*)*',
+      name: 'NotFoundView',
+      component: () => import('../views/NotFoundView.vue'),
     },
   ],
 });

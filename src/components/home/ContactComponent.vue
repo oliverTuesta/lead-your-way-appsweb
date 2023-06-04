@@ -75,29 +75,29 @@ Button:focus {
 }
 
 .bg-gradient-to-r.from-red-500.to-red-700 {
-  background: linear-gradient(to right, #E16F58, #EF4444);
+  background: linear-gradient(to right, #817E9F, #808080);
   border: none;
   color: #FFF;
 }
 
 .bg-gradient-to-r.from-green-500.to-blue-500 {
-  background: linear-gradient(to right, #34D399, #3B82F6);
+  background: linear-gradient(to right, #f97316, #E16F58);
   border: none;
   color: #FFF;
 }
 
 .f-incomplete:hover,.f-incomplete:focus {
-  border-color: #EF4444 !important;
-  box-shadow: 0 0 5px #EF4444 !important;
+  border-color: #817E9F !important;
+  box-shadow: 0 0 5px #817E9F !important;
 }
 
 .f-complete:hover,.f-complete:focus {
-  border-color: #3B82F6 !important;
-  box-shadow: 0 0 5px #3B82F6 !important;
+  border-color: #E16F58 !important;
+  box-shadow: 0 0 5px #E16F58 !important;
 }
 
 .form-complete .f-complete {
-  color: #3B82F6;
+  color: #E16F58;
 }
 
 </style>
