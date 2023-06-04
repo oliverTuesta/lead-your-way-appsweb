@@ -33,7 +33,7 @@ const i18n = createI18n({
       'loginpage-forgot': 'Olvidé mi contraseña',
       'loginpage-repeatpassword': 'Repetir contraseña',
       'loginpage-message2': '¿Ya tienes una cuenta?',
-      'signup-seepassword': 'Ver contraseña'
+      'signup-seepassword': 'Ver contraseña',
     },
 
     en: {

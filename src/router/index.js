@@ -5,6 +5,7 @@ import SignupView from '../views/SignupView.vue';
 import SearchView from '../views/SearchView.vue';
 import ProfileView from '../views/ProfileView.vue';
 import AddBikeView from '../views/AddBikeView.vue';
+import PaymenthMethodView from '../views/PaymenthMethodView.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -44,6 +45,11 @@ const router = createRouter({
       name: 'NotFoundView',
       component: () => import('../views/NotFoundView.vue'),
     },
+    {
+      path: '/payment-method',
+      name: 'payment',
+      component: PaymenthMethodView,
+    }
   ],
 });
 
