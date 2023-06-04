@@ -4,6 +4,7 @@ import LoginView from '../views/LoginView.vue';
 import SignupView from '../views/SignupView.vue';
 import SearchView from '../views/SearchView.vue';
 import ProfileView from '../views/ProfileView.vue';
+import ProductPurchaseView from '../views/ProductPurchaseView.vue';
 import AddBikeView from '../views/AddBikeView.vue';
 import PaymenthMethodView from '../views/PaymenthMethodView.vue';
 
@@ -34,6 +35,11 @@ const router = createRouter({
       path: '/profile/:username',
       name: 'profile',
       component: ProfileView,
+    },
+    {
+      path: '/product-purchase',
+      name: 'product-purchase',
+      component: ProductPurchaseView,
     },
     {
       path: '/addbike',
