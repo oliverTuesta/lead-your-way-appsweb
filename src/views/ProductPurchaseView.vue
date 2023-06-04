@@ -126,7 +126,7 @@
                     <div class="card card-atm border rounded mt-3">
                         <div class="card-body">
                           <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="card" id="visa">
+                            <input class="form-check-input" type="radio" name="card" id="visa">
                             <label class="form-check-label" for="visa">
                               <div class="d-flex align-items-xxl-center">
                                 <div class="fab fa-cc-visa"></div>
@@ -146,7 +146,7 @@
                       <div class="card card-atm border rounded mt-3">
                         <div class="card-body">
                           <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="card" id="mastercard">
+                            <input class="form-check-input" type="radio" name="card" id="mastercard">
                             <label class="form-check-label" for="mastercard">
                               <div class="d-flex align-items-xxl-center">
                                 <div class="fab fa-cc-mastercard"></div>
@@ -199,7 +199,7 @@
           </div>
       </div>
     </div>
-  </div>    
+  </div>
 </template>
 
 <script>
@@ -276,7 +276,6 @@ p {
   font-weight: 500;
 }
 
-
 label.box {
   width: 100%;
   font-size: 12px;
@@ -343,24 +342,28 @@ label.box {
   font-weight: bold;
 }
 
+
+
 #one:checked ~ label.first,
 #two:checked ~ label.second,
 #three:checked ~ label.third {
-  border-color: #d78477;
+  border:2px solid #d78477;
 }
 
-#one:checked ~ label.first .circle,
+
+
+/* #one:checked ~ label.first .circle,
 #two:checked ~ label.second .circle,
 #three:checked ~ label.third .circle {
   border-color: #d78477;
   background-color: #fff;
-}
+} */
 
 label.box .course {
   width: 100%;
 }
 
-label.box .circle {
+/* label.box .circle {
   height: 12px;
   width: 12px;
   background: #ccc;
@@ -368,10 +371,13 @@ label.box .circle {
   margin-right: 15px;
   border: 4px solid transparent;
   display: inline-block;
-}
+} */
 
-input[type='radio'] {
-  display: none;
+
+
+.form-check-input:checked {
+  background-color: #e67665;
+  border-color: #e67665;
 }
 
 .box-2 {
@@ -421,7 +427,7 @@ input[type='radio'] {
 }
 
 .border:focus-within {
-  border: 1px solid #d78477 !important;
+  border: 2px solid #d78477 !important;
 }
 
 .box-2 .card-atm .form-control {
@@ -575,7 +581,6 @@ input[type='radio'] {
     border-radius: 10px;
   }
 }
-
 
 
 </style>
