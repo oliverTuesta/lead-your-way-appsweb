@@ -20,7 +20,7 @@ const i18n = createI18n({
       'get-started-slogan': 'Únete a nuestra comunidad',
       'get-started-content': 'Crear una cuenta en Lead Your Way es muy fácil y te permitirá acceder a una amplia variedad de opciones de bicicletas. Además, al ser parte de nuestra comunidad, tendrás acceso a descuentos exclusivos, promociones especiales y podrás estar al tanto de las últimas novedades en el mundo de las bicicletas.',
       'login': 'Iniciar sesión',
-      'register': 'Registrarse',      
+      'register': 'Registrarse',
       'NotFound': 'Error 404',
       'NotFoundMessage': 'Lo sentimos, la página que estás buscando no existe.',
       'NotFoundButton': 'Volver al inicio',
