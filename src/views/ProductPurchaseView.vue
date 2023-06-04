@@ -58,9 +58,9 @@
               </p>
               <p class="fw-bold">Aplicar Seguro</p>
               <div class="radiobtn">
-                  <input type="checkbox" class="btn-check"  autocomplete="off" name="box" id="one">
-                  <input type="checkbox" class="btn-check"  autocomplete="off" name="box" id="two">
-                  <input type="checkbox" class="btn-check"  autocomplete="off" name="box" id="three">
+                  <input type="checkbox" class="btn-check" autocomplete="off" name="box" id="one">
+                  <input type="checkbox" class="btn-check" autocomplete="off" name="box" id="two">
+                  <input type="checkbox" class="btn-check" autocomplete="off" name="box" id="three">
                   <label for="one" class="box py-2 first">
                       <div class="d-flex align-items-start">
                           <span class="circle"></span>
@@ -199,7 +199,7 @@
           </div>
       </div>
     </div>
-  </div>   
+  </div>
 </template>
 
 <script>
@@ -344,24 +344,28 @@ label.box {
   font-weight: bold;
 }
 
+
+
 #one:checked ~ label.first,
 #two:checked ~ label.second,
 #three:checked ~ label.third {
-  border-color: #d78477;
+  border:2px solid #d78477;
 }
 
-#one:checked ~ label.first .circle,
+
+
+/* #one:checked ~ label.first .circle,
 #two:checked ~ label.second .circle,
 #three:checked ~ label.third .circle {
   border-color: #d78477;
   background-color: #fff;
-}
+} */
 
 label.box .course {
   width: 100%;
 }
 
-label.box .circle {
+/* label.box .circle {
   height: 12px;
   width: 12px;
   background: #ccc;
@@ -369,14 +373,14 @@ label.box .circle {
   margin-right: 15px;
   border: 4px solid transparent;
   display: inline-block;
-}
+} */
+
+
 
 .form-check-input:checked {
-    background-color: #e67665;
-    border-color: #e67665;
+  background-color: #e67665;
+  border-color: #e67665;
 }
-
-
 
 .box-2 {
   max-width: 450px;
@@ -425,7 +429,7 @@ label.box .circle {
 }
 
 .border:focus-within {
-  border: 1px solid #d78477 !important;
+  border: 2px solid #d78477 !important;
 }
 
 .box-2 .card-atm .form-control {
@@ -579,5 +583,7 @@ label.box .circle {
     border-radius: 10px;
   }
 }
+
+
 
 </style>
