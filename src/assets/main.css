@@ -3,3 +3,28 @@
 .max-w-50 {
   max-width: 50%;
 }
+
+.p-tabview .p-tabview-nav li.p-highlight .p-tabview-nav-link {
+  background: #ffffff;
+  border-width: 0px;
+  color: #ec9c32;
+  transition-duration: 0s;
+}
+
+.p-inputtext:enabled:hover .p-inputtext:enabled:focus {
+  border-color: #ec9c32;
+  box-shadow: 0 0 5px #ec9c32;
+}
+
+.p-radiobutton .p-radiobutton-box:not(.p-disabled):not(.p-highlight):hover {
+  border-color: #ec9c32;
+  box-shadow: 0 0 5px #ec9c32;
+}
+
+.p-tabview .p-tabview-nav li.p-highlight .p-tabview-nav-link {
+  border-color: #ec9c32;
+  border-top-color: #ec9c32;
+  border-right-color: #ec9c32;
+  border-bottom-color: #ec9c32;
+  border-left-color: #ec9c32;
+}

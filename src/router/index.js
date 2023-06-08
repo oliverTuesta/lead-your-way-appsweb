@@ -1,10 +1,13 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import HomeView from '../views/HomeView.vue';
+import PaymenthMethodView from '../views/PaymenthMethodView.vue';
 import LoginView from '../views/LoginView.vue';
 import SignupView from '../views/SignupView.vue';
 import SearchView from '../views/SearchView.vue';
 import ProfileView from '../views/ProfileView.vue';
-import BicycleDetailView from '../views/BicycleDetailView.vue';
+import ProductPurchaseView from '../views/ProductPurchaseView.vue';
+import AddBikeView from '../views/AddBikeView.vue';
+import NotFoundView from '../views/NotFoundView.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -35,9 +38,24 @@ const router = createRouter({
       component: ProfileView,
     },
     {
-      path: '/bicycle/:id',
-      name: 'bicycle',
-      component: BicycleDetailView,
+      path: '/product-purchase',
+      name: 'product-purchase',
+      component: ProductPurchaseView,
+    },
+    {
+      path: '/add-bike',
+      name: 'add-bike',
+      component: AddBikeView,
+    },
+    {
+      path: '/payment-method',
+      name: 'payment-method',
+      component: PaymenthMethodView,
+    },
+    {
+      path: '/:pathMatch(.*)*',
+      name: 'not-found',
+      component: NotFoundView,
     },
   ],
 });

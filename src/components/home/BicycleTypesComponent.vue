@@ -3,7 +3,7 @@
     <div class="surface-section px-4 py-8 md:px-6 lg:px-8 text-center">
       <div class="mb-3 font-bold text-3xl">
         <span class="text-900">Lead Your Way, </span>
-        <span class="text-orange-600">{{ $t('options-title') }}</span>
+        <span class="text-orange-500">{{ $t('options-title') }}</span>
       </div>
       <!--<div class="text-700 mb-6">
         Ac turpis egestas maecenas pharetra convallis posuere morbi leo urna.

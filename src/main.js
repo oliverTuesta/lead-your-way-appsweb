@@ -19,12 +19,17 @@ import RadioButton from 'primevue/radiobutton';
 import SplitButton from 'primevue/splitbutton';
 import Toolbar from 'primevue/toolbar';
 import Card from 'primevue/card';
-
+import Steps from 'primevue/steps';
+import FileUpload from 'primevue/fileupload';
+import ConfirmDialog from 'primevue/confirmdialog';
+import TabView from 'primevue/tabview';
+import TabPanel from 'primevue/tabpanel';
+import MultiSelect from 'primevue/multiselect';
+import Toast from 'primevue/toast';
+import ToastService from 'primevue/toastservice';
 import Rating from 'primevue/rating';
-
 import Sidebar from 'primevue/sidebar';
 import Menubar from 'primevue/menubar';
-
 
 import i18n from './locales/i18n';
 
@@ -46,6 +51,14 @@ app.component('RadioButton', RadioButton);
 app.component('SplitButton', SplitButton);
 app.component('Toolbar', Toolbar);
 app.component('Card', Card);
+app.component('Steps', Steps);
+app.component('FileUpload', FileUpload);
+app.component('ConfirmDialog', ConfirmDialog);
+app.component('TabView', TabView);
+app.component('TabPanel', TabPanel);
+app.component('MultiSelect', MultiSelect);
+app.component('Toast', Toast);
+app.use(ToastService);
 
 app.component('Rating', Rating);
 
