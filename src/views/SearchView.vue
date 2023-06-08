@@ -3,7 +3,7 @@
   <div class="search-container">
     <div class="search-wrapper">
       <InputText v-model="searchText" placeholder="Buscar bicicleta" />
-      <Button label="Buscar" class="search-button bg-orange-400"/>
+      <Button label="Buscar" class="search-button bg-orange-400" />
     </div>
     <div class="cards-wrapper">
       <CardBicycle
@@ -14,6 +14,7 @@
         :price="cards.price"
         :image="cards.image"
         :average-rating="cards.averageRating"
+        :id="cards.id"
       />
     </div>
   </div>
@@ -28,6 +29,7 @@ export default {
   data: () => ({
     cardsBicycle: [
       {
+        id: 1,
         name: 'SINTESI 906 29"',
         content: 'MTB pro aluminio / hidráulico',
         price: 'S/. 1,749.00',
@@ -36,6 +38,7 @@ export default {
         averageRating: 4,
       },
       {
+        id: 2,
         name: 'VINTAGE BONITA',
         content: 'Paseo acero / 6 velocidades',
         price: 'S/. 599.00',
@@ -44,6 +47,7 @@ export default {
         averageRating: 4,
       },
       {
+        id: 3,
         name: 'TRACK PACIFICO',
         content: 'Track urbana de aluminio',
         price: 'S/. 1,329.00',

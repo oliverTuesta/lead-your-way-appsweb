@@ -4,6 +4,7 @@ import LoginView from '../views/LoginView.vue';
 import SignupView from '../views/SignupView.vue';
 import SearchView from '../views/SearchView.vue';
 import ProfileView from '../views/ProfileView.vue';
+import BicycleDetailView from '../views/BicycleDetailView.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -32,6 +33,11 @@ const router = createRouter({
       path: '/profile/:username',
       name: 'profile',
       component: ProfileView,
+    },
+    {
+      path: '/bicycle/:id',
+      name: 'bicycle',
+      component: BicycleDetailView,
     },
   ],
 });

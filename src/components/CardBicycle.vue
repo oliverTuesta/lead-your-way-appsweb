@@ -3,7 +3,7 @@
     <Card class="bike-card">
       <template #header>
         <div class="image-container">
-          <img class="header-image" :alt="name" :src="image"/>
+          <img class="header-image" :alt="name" :src="image" />
         </div>
       </template>
       <template #title>
@@ -11,12 +11,14 @@
       </template>
       <template #content>
         <p class="bike-details">{{ content }}</p>
-        <Rating :value="average"  :cancel="false" readonly/>
+        <Rating :value="average" :cancel="false" readonly />
       </template>
       <template #footer>
         <div class="footer-content">
           <span class="price">{{ price }}</span>
-          <Button icon="pi pi-check" label="Rentar" class="rent-button" />
+          <a :href="`/bicycle/${id}`">
+            <Button icon="pi pi-check" label="Rentar" class="rent-button" />
+          </a>
         </div>
       </template>
     </Card>
@@ -33,15 +35,16 @@ export default {
   components: {
     Card,
     Button,
-    Rating
+    Rating,
   },
-  setup(){
-    const average=ref(3);
+  setup() {
+    const average = ref(3);
     return {
       average,
     };
   },
   props: {
+    id: Number,
     name: String,
     content: String,
     price: String,
@@ -51,8 +54,6 @@ export default {
 };
 </script>
 <style scoped>
-
-
 .bike-card {
   width: 20em;
   height: 100%;
@@ -100,5 +101,4 @@ export default {
   font-weight: bold;
   border: none;
 }
-
 </style>
