@@ -7,7 +7,7 @@
           <div class="card">
             <div class="flex flex-column gap-2">
               <label for="title" class="font-bold">Título</label>
-              <InputText id="title" v-model="value" aria-describedby="username-help" />
+              <InputText id="title" v-model="name" aria-describedby="username-help" />
               <small id="username-help">Ingrese el título de su publicación.</small>
             </div>
           </div>
@@ -31,11 +31,11 @@
           </div>
           <div class="card flex flex-column">
             <label for="currency-per" class="font-bold block mb-2">Monto</label>
-            <InputNumber v-model="value1" inputId="currency-per" prefix="S/ " />
+            <InputNumber v-model="price" inputId="currency-per" prefix="S/ " />
           </div>
           <div class="card">
             <label for="description" class="font-bold block mb-2">Descripción</label>
-            <Textarea inputId="description" v-model="value" rows="5" cols="30" />
+            <Textarea inputId="description" v-model="description" rows="5" cols="30" />
           </div>
         </div>
       </TabPanel>
@@ -45,19 +45,19 @@
             <span class="p-inputgroup-addon">
               <i class="pi pi-map"></i>
             </span>
-            <InputText placeholder="Ciudad" />
+            <InputText placeholder="Ciudad" v-model="city" />
           </div>
           <div class="p-inputgroup flex-1 card maxH">
             <span class="p-inputgroup-addon">
               <i class="pi pi-map-marker"></i>
             </span>
-            <InputText placeholder="Distrito" />
+            <InputText placeholder="Distrito" v-model="district" />
           </div>
           <div class="p-inputgroup flex-1 card maxH">
             <span class="p-inputgroup-addon">
               <i class="pi pi-map-marker"></i>
             </span>
-            <InputText placeholder="Dirección" />
+            <InputText placeholder="Dirección" v-model="address" />
           </div>
         </div>
       </TabPanel>
@@ -95,20 +95,142 @@
               </p>
             </template>
           </FileUpload>
-          <Button label="Submit" icon="pi pi-check" class="mt-4" />
+          <div class="mt-5">
+            <InputText placeholder="Enlace de la Imagen" v-model="image" />
+          </div>
+          <Button label="Submit" icon="pi pi-check" class="mt-4" @click="submitForm()" />
         </div>
       </TabPanel>
     </TabView>
   </div>
+  <Toast />
 </template>
 
 <script setup>
 import HeaderComponent from '../components/HeaderComponent.vue';
+import { ref } from 'vue';
+import { BicycleApiService } from '../services/bicycle.lyw.service';
+import { useToast } from 'primevue/usetoast';
+import router from '../router';
+
+const name = ref('');
+const description = ref('');
+const price = ref('');
+const size = ref('');
+const model = ref('');
+const image = ref('');
+const userid = localStorage.getItem('id');
+const city = ref('');
+const district = ref('');
+const address = ref('');
+
+const bicycleApiService = new BicycleApiService();
+const toast = useToast();
+
+async function submitForm() {
+  if (!validateForm()) return;
+
+  try {
+    const bicycle = {
+      name: name.value,
+      description: description.value,
+      price: Number(price.value),
+      model: model.value,
+      size: size.value,
+      image: image.value,
+      userid: Number(userid),
+    };
+
+    await bicycleApiService.create(bicycle);
+
+    console.log(bicycle);
+
+    name.value = '';
+    description.value = '';
+    price.value = '';
+    model.value = '';
+    size.value = '';
+    image.value = '';
+    city.value = '';
+    district.value = '';
+    address.value = '';
+
+    successfullRequest();
+
+    router.push({ name: 'SearchView' });
+  } catch (error) {
+    console.error('Error while submitting the form:', error);
+  }
+}
+
+async function validateForm() {
+  if (name.value == '') {
+    toast.add({
+      severity: 'error',
+      summary: 'Error',
+      detail: 'Es necesario ingresar el nombre de la bicicleta',
+      life: 3000,
+    });
+    return false;
+  }
+  if (description.value == '') {
+    toast.add({
+      severity: 'error',
+      summary: 'Error',
+      detail: 'Es necesario ingresar la descripción de la bicicleta',
+      life: 3000,
+    });
+    return false;
+  }
+  if (price.value == '') {
+    toast.add({
+      severity: 'error',
+      summary: 'Error',
+      detail: 'Es necesario ingresar el precio de la bicicleta',
+      life: 3000,
+    });
+    return false;
+  }
+  if (size.value == '') {
+    toast.add({
+      severity: 'error',
+      summary: 'Error',
+      detail: 'Es necesario ingresar el tamaño de la bicicleta',
+      life: 3000,
+    });
+    return false;
+  }
+  return true;
+}
+
+async function successfullRequest() {
+  toast.add({
+    severity: 'success',
+    summary: 'Exitos ༼ つ ◕_◕ ༽つ',
+    detail: 'La bicicleta se ha agregado correctamente',
+    life: 5000,
+  });
+}
 </script>
 
 <script>
 export default {
   name: 'AddBikeView',
+  components: {
+    HeaderComponent,
+  },
+  setup() {
+    return {
+      title,
+      size,
+      amount,
+      description,
+      city,
+      district,
+      address,
+      submitForm,
+    };
+  },
 };
 </script>
 
