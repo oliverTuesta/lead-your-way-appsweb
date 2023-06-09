@@ -31,6 +31,9 @@ import Rating from 'primevue/rating';
 import Sidebar from 'primevue/sidebar';
 import Menubar from 'primevue/menubar';
 
+import '@fortawesome/fontawesome-free/css/all.css'
+import '@fortawesome/fontawesome-free/js/all.js'
+
 import i18n from './locales/i18n';
 
 import './assets/main.css';
