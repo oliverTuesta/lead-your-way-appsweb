@@ -4,7 +4,7 @@
   <div class="justify-content-center flex justify-center align-items-center h-screen">
     <div class="surface-card p-4 shadow-2 border-round w-full lg:w-6">
       <div class="text-center mb-5">
-        <img src="@/assets/imgages/logo.png" alt="Lead Your Way logo" height="50" class="mb-3" />
+        <img src="@/assets/img/lywlogo.png" alt="Lead Your Way logo" height="50" class="mb-3" />
         <div class="text-900 text-3xl font-medium mb-3">{{ $t('loginpage-welcome') }}</div>
         <span class="text-600 font-medium line-height-3">{{ $t('loginpage-message2') }}</span>
         <a class="font-medium no-underline ml-2 text-orange-500 cursor-pointer" href="/signup">{{

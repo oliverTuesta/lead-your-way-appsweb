@@ -1,5 +1,5 @@
 <template>
-  <Card class="h-auto max-w-15rem">
+  <Card id="cards" class="h-auto max-w-15rem">
     <template #header>
       <img class="bg-cover bg-center h-15rem w-full border-round-top" :alt="name" :src="image" />
     </template>
@@ -22,4 +22,13 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+#cards{
+  margin-top: 10px;
+  margin-left: 10px;
+}
+#cards:hover{
+  transform: scale(1.1);
+  transition: 0.5s;
+}
+</style>

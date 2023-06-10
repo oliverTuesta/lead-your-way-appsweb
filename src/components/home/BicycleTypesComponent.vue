@@ -10,31 +10,31 @@
       </div>-->
       <div class="grid">
         <div class="col-12 md:col-4 mb-4 px-5">
-          <span class="p-3 shadow-2 mb-3 inline-block surface-card" style="border-radius: 10px">
-            <i class="pi pi-heart-fill text-4xl text-orange-500"></i>
+          <span class="p-4 mb-3 inline-block surface-card" style="border-radius: 10px">
+            <div class="i-container">
+              <i class="fa-solid fa-bicycle" style="color: #f97316;"></i>
+            </div>
           </span>
-          <div class="text-900 text-xl mb-3 font-medium">{{ $t('option1') }}</div>
-          <span class="text-700 line-height-3"
-            >{{ $t('option1-content') }}</span
-          >
+          <div class="text-900 text-orange-500 text-xl mb-3 font-medium">{{ $t('option1') }} </div>
+          <span class="text-700 line-height-3">{{ $t('option1-content') }}</span>
         </div>
         <div class="col-12 md:col-4 mb-4 px-5">
-          <span class="p-3 shadow-2 mb-3 inline-block surface-card" style="border-radius: 10px">
-            <i class="pi pi-credit-card text-4xl text-orange-500"></i>
+          <span class="p-4 mb-3 inline-block surface-card" style="border-radius: 10px">
+            <div class="i-container">
+              <i class="fa-solid fa-person-biking-mountain" style="color: #f97316;"></i>
+            </div>
           </span>
-          <div class="text-900 text-xl mb-3 font-medium">{{ $t('option2') }}</div>
-          <span class="text-700 line-height-3"
-            >{{ $t('option2-content') }}
-          </span>
+          <div class="text-900 text-orange-500 text-xl mb-3 font-medium">{{ $t('option2') }}</div>
+          <span class="text-700 line-height-3">{{ $t('option2-content') }} </span>
         </div>
         <div class="col-12 md:col-4 md:mb-4 mb-0 px-3">
-          <span class="p-3 shadow-2 mb-3 inline-block surface-card" style="border-radius: 10px">
-            <i class="pi pi-shield text-4xl text-orange-500"></i>
+          <span class="p-4 mb-3 inline-block surface-card" style="border-radius: 10px">
+            <div class="i-container">
+              <i class="fa-solid fa-person-biking" style="color: #f97316;"></i>
+            </div>
           </span>
-          <div class="text-900 text-xl mb-3 font-medium">{{ $t('option3') }}</div>
-          <span class="text-700 line-height-3"
-            >{{ $t('option3-content') }}</span
-          >
+          <div class="text-900 text-orange-500 text-xl mb-3 font-medium">{{ $t('option3') }}</div>
+          <span class="text-700 line-height-3">{{ $t('option3-content') }}</span>
         </div>
       </div>
     </div>
@@ -45,4 +45,8 @@
 export default {};
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.i-container{
+  font-size: 40px;
+}
+</style>

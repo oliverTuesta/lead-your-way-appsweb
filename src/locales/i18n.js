@@ -7,7 +7,7 @@ const i18n = createI18n({
     es: {
       lyw: 'Lead Your Way',
       'about-content':
-        'Somos una compañía que ofrece una plataforma digital donde podrás encontrar bicicletas para todo tipo de usuarios Por lo que, lo que necesitas es una bicicleta tanto para practicar deporte o necesitas otro tipo de movilidad, en esta página encontrarás todo lo necesario de forma rápida, sencilla y segura. Además, nunca tendrás que preocuparte por no encontrar la bicicleta adecuada, en este lugar podrás encontrar lo que necesites según tus necesidades',
+        'Somos una compañía que ofrece una plataforma digital donde podrás encontrar bicicletas para todo tipo de usuarios. Ya sea que necesites una bicicleta para practicar deporte o para otra forma de movilidad, en nuestra página encontrarás todo lo que necesitas de forma rápida, sencilla y segura. Además, nunca tendrás que preocuparte por no encontrar la bicicleta adecuada, ya que en nuestro sitio podrás encontrar exactamente lo que necesitas según tus preferencias y necesidades.',
       'options-title': 'es la forma más fácil de buscar bicicletas para...',
       //'call-to-action-sub': '¡Encuentra tu bicicleta!',
       'option1':'Ruta',
@@ -34,6 +34,12 @@ const i18n = createI18n({
       'loginpage-repeatpassword': 'Repetir contraseña',
       'loginpage-message2': '¿Ya tienes una cuenta?',
       'signup-seepassword': 'Ver contraseña',
+      'contactus-title': 'Contáctanos',
+      'contactus-sub' : 'Por favor, rellena el siguiente formulario para ponerte en contacto con nosotros.',
+      'name' : 'Nombre',
+      'email' : 'Correo electrónico',
+      'message' : 'Mensaje',
+      'send' : 'Enviar',
     },
 
     en: {
@@ -63,6 +69,12 @@ const i18n = createI18n({
       'loginpage-repeatpassword': 'Repeat password',
       'loginpage-message2': 'Already have an account?',
       'signup-seepassword': 'See password',
+      'contactus-title': 'Contact us',
+      'contactus-sub' : 'Please fill out the following form to get in touch with us.',
+      'name' : 'Name',
+      'email' : 'Email',
+      'message' : 'Message',
+      'send' : 'Send',
     },
 
     fr: {
@@ -92,6 +104,12 @@ const i18n = createI18n({
       'loginpage-repeatpassword': 'Répéter le mot de passe',
       'loginpage-message2': 'Vous avez déjà un compte?',
       'signup-seepassword': 'Voir le mot de passe',
+      'contactus-title': 'Contactez nous',
+      'contactus-sub' : 'Veuillez remplir le formulaire suivant pour nous contacter.',
+      'name' : 'Nom',
+      'email' : 'Email',
+      'message' : 'Message',
+      'send' : 'Envoyer',
     },
 
     ja: {
@@ -121,6 +139,12 @@ const i18n = createI18n({
       'loginpage-repeatpassword': 'パスワードを繰り返す',
       'loginpage-message2': 'すでにアカウントをお持ちですか？',
       'signup-seepassword': 'パスワードを見る',
+      'contactus-title': 'お問い合わせ',
+      'contactus-sub' : '以下のフォームにご記入いただき、お問い合わせください。',
+      'name' : '名前',
+      'email' : 'Eメール',
+      'message' : 'メッセージ',
+      'send' : '送信',
     },
   },
 

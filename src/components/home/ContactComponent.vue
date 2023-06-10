@@ -1,7 +1,7 @@
 <template>
-  <div class="text-center w-23rem mx-auto">
-    <h2>Contact Us</h2>
-    <p>Please fill out the form below to get in touch with us:</p>
+  <div class="text-center w-27rem mx-auto">
+    <h2>{{$t('contactus-title')}}</h2>
+    <p>{{ $t('contactus-sub') }}</p>
     <form class="m-3 flex-row" v-on:submit.prevent="submitForm" :class="{ 'form-complete': !formIncomplete }" >
       <InputText v-model="name" placeholder="Name" class="w-full" :class="formIncomplete ?'f-incomplete' : 'f-complete'" />
       <InputText v-model="email" placeholder="Email" class="my-3 w-full" :class="formIncomplete ?'f-incomplete' : 'f-complete'" />
