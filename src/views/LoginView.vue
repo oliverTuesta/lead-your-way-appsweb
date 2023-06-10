@@ -13,10 +13,14 @@
       </div>
 
       <div>
-        <label for="email1" class="block text-900 font-medium mb-2">{{ $t('loginpage-email') }}</label>
+        <label for="email1" class="block text-900 font-medium mb-2">{{
+          $t('loginpage-email')
+        }}</label>
         <InputText id="email1" type="text" class="w-full mb-3" />
 
-        <label for="password1" class="block text-900 font-medium mb-2">{{ $t('loginpage-password') }}</label>
+        <label for="password1" class="block text-900 font-medium mb-2">{{
+          $t('loginpage-password')
+        }}</label>
         <InputText id="password1" type="password" class="w-full mb-3" />
 
         <div class="flex align-items-center justify-content-between mb-6">
@@ -34,6 +38,7 @@
             :label="$t('login')"
             icon="pi pi-user"
             class="w-full bg-orange-400 border-orange-200"
+            @click="onSubmit()"
           ></Button>
         </a>
       </div>
@@ -46,5 +51,10 @@ export default {
   data: () => ({
     checked: false,
   }),
+  methods: {
+    onSubmit() {
+      localStorage.setItem('id', '1');
+    },
+  },
 };
 </script>

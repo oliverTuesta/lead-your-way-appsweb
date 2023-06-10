@@ -1,35 +1,10 @@
 <template>
-  <!--
-  <section>
-    <div class="card-container flex-wrap flex gap-2 justify-content-center align-items-center">
-      <div class="sm:max-w-max md:max-w-30rem sm:p-2">
-        <div class="text-center text-2xl">
-          <h1 class="font-semibold text-900"><span class="text-orange-500">Lead</span> Your way</h1>
-        </div>
-        <p class="text-800">
-          {{ $t('about-content') }}
-        </p>
-      </div>
-      <div class="card-container blue-container overflow-hidden p-5">
-        <img
-          class="g-auto bg-no-repeat bg-center bg-blue-500 border-round h-auto w-full md:w-20rem"
-          src="https://i.ytimg.com/vi/qQQbgribKbU/maxresdefault.jpg"
-          alt=""
-        />
-      </div>
-    </div>
-  </section>-->
   <div class="about-component">
     <div class="first-part">
       <div>
         <h1 class="font-semibold text-900"><span class="text-orange-500">Lead</span> Your way</h1>
         <p>{{ $t('about-content') }}</p>
-        <div class="buttons">
-          <!--
-          <button>Botón 1</button>
-          <button>Botón 2</button>
-          -->
-        </div>
+        <div class="buttons"></div>
       </div>
     </div>
     <div class="second-part">
@@ -50,9 +25,9 @@ export default {
   data() {
     return {
       images: [
-        'src/assets/img/bikes/bmc_bike2.png',
-        'src/assets/img/bikes/phoenix_bike.png',
-        'src/assets/img/bikes/city_bike.png',
+        'https://images.prismic.io/santacruzbikesstatic/d7b7d8aa-438f-457a-8201-c88dda03bf70_NJiYgrwg.jpeg?auto=compress,format',
+        'https://images.prismic.io/santacruzbikesstatic/278137c7-8010-4a40-bd73-c1ce0c7023ee_fIBc--Q8.jpeg?auto=compress,format',
+        'https://images.prismic.io/santacruzbikesstatic/0b6725b2-f71a-4182-af54-36929b8edbc6_62i36DdE.jpeg?auto=compress,format',
       ],
       currentImageIndex: 0,
     };

@@ -5,23 +5,20 @@
         <span class="text-900">Lead Your Way, </span>
         <span class="text-orange-500">{{ $t('options-title') }}</span>
       </div>
-      <!--<div class="text-700 mb-6">
-        Ac turpis egestas maecenas pharetra convallis posuere morbi leo urna.
-      </div>-->
       <div class="grid">
         <div class="col-12 md:col-4 mb-4 px-5">
           <span class="p-4 mb-3 inline-block surface-card" style="border-radius: 10px">
             <div class="i-container">
-              <i class="fa-solid fa-bicycle" style="color: #f97316;"></i>
+              <i class="fa-solid fa-bicycle" style="color: #f97316"></i>
             </div>
           </span>
-          <div class="text-900 text-orange-500 text-xl mb-3 font-medium">{{ $t('option1') }} </div>
+          <div class="text-900 text-orange-500 text-xl mb-3 font-medium">{{ $t('option1') }}</div>
           <span class="text-700 line-height-3">{{ $t('option1-content') }}</span>
         </div>
         <div class="col-12 md:col-4 mb-4 px-5">
           <span class="p-4 mb-3 inline-block surface-card" style="border-radius: 10px">
             <div class="i-container">
-              <i class="fa-solid fa-person-biking-mountain" style="color: #f97316;"></i>
+              <i class="fa-solid fa-person-biking-mountain" style="color: #f97316"></i>
             </div>
           </span>
           <div class="text-900 text-orange-500 text-xl mb-3 font-medium">{{ $t('option2') }}</div>
@@ -30,7 +27,7 @@
         <div class="col-12 md:col-4 md:mb-4 mb-0 px-3">
           <span class="p-4 mb-3 inline-block surface-card" style="border-radius: 10px">
             <div class="i-container">
-              <i class="fa-solid fa-person-biking" style="color: #f97316;"></i>
+              <i class="fa-solid fa-person-biking" style="color: #f97316"></i>
             </div>
           </span>
           <div class="text-900 text-orange-500 text-xl mb-3 font-medium">{{ $t('option3') }}</div>
@@ -46,7 +43,7 @@ export default {};
 </script>
 
 <style lang="scss" scoped>
-.i-container{
+.i-container {
   font-size: 40px;
 }
 </style>

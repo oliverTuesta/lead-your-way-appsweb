@@ -6,8 +6,8 @@
     </div>
     <div class="toolbar-middle">
       <p class="menu-options">
-        <span>Home</span> | <span>About</span> |
-        <span>Contact</span>
+        <span>Home</span> | <span>About</span> | <span>Contact</span> |
+        <span><router-link to="/search">Search</router-link></span>
       </p>
     </div>
     <div class="toolbar-right">
@@ -25,6 +25,10 @@ export default {
 </script>
 
 <style scoped>
+router-link {
+  text-decoration: none;
+  color: black;
+}
 .toolbar {
   display: flex;
   align-items: center;
