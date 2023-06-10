@@ -109,7 +109,7 @@
 <script setup>
 import HeaderComponent from '../components/HeaderComponent.vue';
 import { ref } from 'vue';
-import { BicycleApiService } from '../services/bicycle.lyw.service';
+import { bicycleService } from '../services/bicycle.lyw.service';
 import { useToast } from 'primevue/usetoast';
 import router from '../router';
 
@@ -124,11 +124,43 @@ const city = ref('');
 const district = ref('');
 const address = ref('');
 
-const bicycleApiService = new BicycleApiService();
+//const bicycleApiService = new bicycleService();
 const toast = useToast();
 
 async function submitForm() {
-  if (!validateForm()) return;
+  if (name.value == '') {
+    toast.add({
+      severity: 'error',
+      summary: 'Error',
+      detail: 'Es necesario ingresar el nombre de la bicicleta',
+      life: 3000,
+    });
+    return false;
+  } else if (description.value == '') {
+    toast.add({
+      severity: 'error',
+      summary: 'Error',
+      detail: 'Es necesario ingresar la descripción de la bicicleta',
+      life: 3000,
+    });
+    return false;
+  } else if (price.value == '') {
+    toast.add({
+      severity: 'error',
+      summary: 'Error',
+      detail: 'Es necesario ingresar el precio de la bicicleta',
+      life: 3000,
+    });
+    return false;
+  } else if (size.value == '') {
+    toast.add({
+      severity: 'error',
+      summary: 'Error',
+      detail: 'Es necesario ingresar el tamaño de la bicicleta',
+      life: 3000,
+    });
+    return false;
+  }
 
   try {
     const bicycle = {
@@ -141,9 +173,7 @@ async function submitForm() {
       userid: Number(userid),
     };
 
-    await bicycleApiService.create(bicycle);
-
-    console.log(bicycle);
+    await bicycleService.create(bicycle);
 
     name.value = '';
     description.value = '';
@@ -155,52 +185,12 @@ async function submitForm() {
     district.value = '';
     address.value = '';
 
-    successfullRequest();
-
-    router.push({ name: 'SearchView' });
+    await successfullRequest();
+    await new Promise((resolve) => setTimeout(resolve, 3000));
+    await router.push('/search');
   } catch (error) {
     console.error('Error while submitting the form:', error);
   }
-}
-
-async function validateForm() {
-  if (name.value == '') {
-    toast.add({
-      severity: 'error',
-      summary: 'Error',
-      detail: 'Es necesario ingresar el nombre de la bicicleta',
-      life: 3000,
-    });
-    return false;
-  }
-  if (description.value == '') {
-    toast.add({
-      severity: 'error',
-      summary: 'Error',
-      detail: 'Es necesario ingresar la descripción de la bicicleta',
-      life: 3000,
-    });
-    return false;
-  }
-  if (price.value == '') {
-    toast.add({
-      severity: 'error',
-      summary: 'Error',
-      detail: 'Es necesario ingresar el precio de la bicicleta',
-      life: 3000,
-    });
-    return false;
-  }
-  if (size.value == '') {
-    toast.add({
-      severity: 'error',
-      summary: 'Error',
-      detail: 'Es necesario ingresar el tamaño de la bicicleta',
-      life: 3000,
-    });
-    return false;
-  }
-  return true;
 }
 
 async function successfullRequest() {
@@ -208,7 +198,7 @@ async function successfullRequest() {
     severity: 'success',
     summary: 'Exitos ༼ つ ◕_◕ ༽つ',
     detail: 'La bicicleta se ha agregado correctamente',
-    life: 5000,
+    life: 3000,
   });
 }
 </script>
