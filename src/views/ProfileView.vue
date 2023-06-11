@@ -2,6 +2,7 @@
 import HeaderComponent from '../components/HeaderComponent.vue';
 import { userService } from '../services/user.service';
 import { bicycleService } from '../services/bicycle.lyw.service';
+import { cardService } from '../services/card.lyw.service';
 </script>
 <template>
   <HeaderComponent class="mb-5" />
@@ -40,20 +41,30 @@ import { bicycleService } from '../services/bicycle.lyw.service';
               {{ user.phone }}
             </div>
           </li>
-          <li
-            class="flex align-items-center py-3 px-2 border-top-1 border-bottom-1 surface-border flex-wrap"
-          >
-            <div class="text-500 w-6 md:w-2 font-medium">Bicycles</div>
-            <div
-              v-for="bicycle in user.bicycles"
-              class="text-900 w-full md:w-8 md:flex-order-0 flex-order-1 line-height-3"
-            >
+
+          <li class="flex flex-wrap">
+            <div class="leftSide mr-8 border-top-1 surface-border py-3 px-2">
+              <div class="text-500 font-medium mb-3">Bicycles</div>
               <ul class="list-none p-0 m-0">
-                <li class="flex align-items-center py-3 px-2 border-top-1 surface-border flex-wrap">
-                  <div class="text-900 w-full md:w-8 md:flex-order-0 flex-order-1">
-                    {{ bicycle.name }} - {{ bicycle.description }}
-                  </div>
-                </li>
+                <div v-for="bicycle in user.bicycles" class="flex-wrap">
+                  <li class="border-top-1 surface-border text-900 line-height-3 py-3 px-2">
+                    <div class="pb-3">{{ bicycle.name }} - {{ bicycle.description }}</div>
+                    <div class="bikeCenter">
+                      <img :src="bicycle.image" :alt="bicycle.name" class="bikeImg pb-1" />
+                    </div>
+                  </li>
+                </div>
+              </ul>
+            </div>
+            <div class="rightSide border-top-1 surface-border py-3 px-2">
+              <div class="text-500 font-medium mb-3">Cards</div>
+              <ul class="list-none p-0 m-0">
+                <div v-for="card in user.cards" class="flex-wrap">
+                  <li class="border-top-1 surface-border text-900 line-height-3 py-3 px-2">
+                    <div class="">{{ card.name }} - {{ card.type }}</div>
+                    <div>{{ masCardNumber(card.number) }}</div>
+                  </li>
+                </div>
               </ul>
             </div>
           </li>
@@ -105,11 +116,25 @@ export default {
     await bicycleService.getByUserId(id).then((response) => {
       this.user.bicycles = response;
     });
+    await cardService.getByUserId(id).then((response) => {
+      this.user.cards = response;
+    });
   },
   data() {
     return {
       user: {},
     };
+  },
+  methods: {
+    async logout() {
+      localStorage.removeItem('id');
+      this.$router.push('/home');
+    },
+    masCardNumber(number) {
+      const maskedNumber = number.slice(-4).padStart(number.length, 'x');
+      const formattedNumber = maskedNumber.replace(/(.{4})/g, '$1 - ');
+      return formattedNumber.slice(0, -3);
+    },
   },
 };
 </script>
@@ -123,5 +148,25 @@ export default {
 
 .bgColor {
   background-color: #f5f5f5;
+}
+
+.bikeImg {
+  width: 100px;
+  height: auto;
+  object-fit: contain;
+}
+
+.bikeCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.leftSide {
+  max-width: 500px;
+}
+
+.rightSide {
+  max-width: 500px;
 }
 </style>
