@@ -1,11 +1,15 @@
 <script setup>
 import HeaderComponent from '../components/HeaderComponent.vue';
+import { userService } from '../services/user.service';
 </script>
 <template>
   <HeaderComponent class="mb-5" />
-  <div>
+  <div v-if="user">
     <div class="surface-ground px-4 py-8 md:px-6 lg:px-8">
-      <div class="text-900 font-bold text-6xl mb-4 text-center">{{ $route.params.username }}</div>
+      <div class="text-900 font-bold text-6xl mb-4 text-center">{{ user.name }}</div>
+      <div class="w-full flex justify-content-center">
+        <img class="max-w-18rem border-round-md" :src="user.image" alt="Profile Picture" />
+      </div>
       <div class="text-700 text-xl mb-6 text-center line-height-3">
         {{ user.description }}
       </div>
@@ -17,15 +21,15 @@ import HeaderComponent from '../components/HeaderComponent.vue';
         </div>
         <ul class="list-none p-0 m-0">
           <li class="flex align-items-center py-3 px-2 border-top-1 surface-border flex-wrap">
-            <div class="text-500 w-6 md:w-2 font-medium">First Name:</div>
+            <div class="text-500 w-6 md:w-2 font-medium">Name:</div>
             <div class="text-900 w-full md:w-8 md:flex-order-0 flex-order-1">
-              {{ user.firstName }}
+              {{ user.name }}
             </div>
           </li>
           <li class="flex align-items-center py-3 px-2 border-top-1 surface-border flex-wrap">
-            <div class="text-500 w-6 md:w-2 font-medium">Last Name:</div>
+            <div class="text-500 w-6 md:w-2 font-medium">Email:</div>
             <div class="text-900 w-full md:w-8 md:flex-order-0 flex-order-1">
-              {{ user.lastName }}
+              {{ user.email }}
             </div>
           </li>
           <li class="flex align-items-center py-3 px-2 border-top-1 surface-border flex-wrap">
@@ -55,27 +59,26 @@ import HeaderComponent from '../components/HeaderComponent.vue';
       </div>
     </div>
   </div>
+  <div v-else>
+    <div class="surface-ground px-4 py-8 md:px-6 lg:px-8">
+      <div class="text-900 font-bold text-6xl mb-4 text-center">Loading...</div>
+    </div>
+  </div>
 </template>
 
 <script>
 export default {
   name: 'ProfileView',
+  // on mount call the api to get the user data
+  mounted() {
+    userService.getById(1).then((response) => {
+      this.user = response;
+      console.log(this.user);
+    });
+  },
   data() {
     return {
-      user: {
-        firstName: 'John',
-        lastName: 'Doe',
-        description: 'this is a description',
-        email: 'john@mail.com',
-        phone: '1234567890',
-        bicycles: [
-          {
-            model: 'giant',
-            description: 'this is a giant bicycle',
-            price: 1000,
-          },
-        ],
-      },
+      user: {},
     };
   },
 };
