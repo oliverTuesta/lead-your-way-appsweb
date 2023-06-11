@@ -71,7 +71,11 @@ export default {
   name: 'ProfileView',
   // on mount call the api to get the user data
   mounted() {
-    userService.getById(1).then((response) => {
+    const id = localStorage.getItem('id');
+    if (!id) {
+      this.$router.push('/login');
+    }
+    userService.getById(id).then((response) => {
       this.user = response;
       console.log(this.user);
     });
