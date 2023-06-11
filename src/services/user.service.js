@@ -1,25 +1,34 @@
 import axios from 'axios';
 
-export class UsersApiService {
-  url = 'http://localhost:3000/users';
+const API_URL = 'https://leadyourway.azurewebsites.net/api/user';
 
-  getAll() {
-    return axios.get('https://jsonplaceholder.typicode.com/users');
+export default class UserService {
+  async getAll() {
+    const response = await axios.get(API_URL);
+    return response.data;
   }
 
-  getById(id) {
-    return axios.get(`${this.url}/${id}`);
+  async getById(id) {
+    const response = await axios.get(`${API_URL}/${id}`);
+    return response.data;
   }
 
-  create(user) {
-    return axios.post(this.url, bicycle);
+  async getByUserId(id) {
+    const response = await axios.get(`${API_URL}/filterByUserId/${id}`);
+    return response.data;
   }
 
-  update(user) {
-    return axios.put(`${this.url}/${bicycle.id}`, bicycle);
+  async create(bicycle) {
+    return axios.post(API_URL, bicycle);
   }
 
-  delete(id) {
-    return axios.delete(`${this.url}/${id}`);
+  async update(bicycle) {
+    return axios.put(`${API_URL}/${bicycle.id}`, bicycle);
+  }
+
+  async delete(id) {
+    return axios.delete(`${API_URL}/${id}`);
   }
 }
+
+export const userService = new UserService();
