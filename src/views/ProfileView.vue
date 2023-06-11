@@ -69,7 +69,6 @@ import { userService } from '../services/user.service';
 <script>
 export default {
   name: 'ProfileView',
-  // on mount call the api to get the user data
   mounted() {
     const id = localStorage.getItem('id');
     if (!id) {
