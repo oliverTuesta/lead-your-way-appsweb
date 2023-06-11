@@ -14,6 +14,10 @@ const router = createRouter({
   routes: [
     {
       path: '/',
+      redirect: '/home',
+    },
+    {
+      path: '/home',
       name: 'home',
       component: HomeView,
     },
@@ -43,7 +47,7 @@ const router = createRouter({
       component: ProductPurchaseView,
     },
     {
-      path: '/add-bike',
+      path: '/create',
       name: 'add-bike',
       component: AddBikeView,
     },

@@ -3,7 +3,9 @@ import DeveloperCard from '@/components/home/DeveloperCard.vue';
 </script>
 
 <template>
-  <h2 class="text-center text-2xl">{{$t('meet-our-team')}}</h2>
+  <h2 id="title-team" class="text-center">
+    <span class="typing-animation">{{ $t('meet-our-team') }}</span>
+  </h2>
   <div class="card-container flex-wrap flex gap-4 justify-content-center">
     <DeveloperCard
       v-for="developer in developers"
@@ -22,31 +24,85 @@ export default {
       {
         name: 'Oliver Tuesta',
         role: 'CTO',
-        image: '/src/assets/img/Oliver.jpg',
+        image:
+          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTW2b65FGFNZHy2zLOW5gXtw-laKcwA92xrfQuIafyYuCowSXY_CuSNYFTWRdlmYPJMKA&usqp=CAU',
       },
       {
         name: 'Lucas Ruiz',
         role: 'CEO',
-        image: '/src/assets/img/Lucas.jpg',
+        image:
+          'https://e1.pxfuel.com/desktop-wallpaper/147/865/desktop-wallpaper-anime-profile-pic-anime-profile.jpg',
       },
       {
         name: 'Arnol Cáceres',
         role: 'Technical Leader',
-        image: '/src/assets/img/Arnol.png',
-      },      
-      {
-        name: 'David Quito',
-        role: 'Frontend Developer',
-        image: '/src/assets/img/David.png',
+        image:
+          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXyOzKHsoAHGZVjCBBevzs3xCDSSZ3pmJVN1-TyCoZXJITgbDYIlIun9WfMJAOsPFDp0o&usqp=CAU',
       },
       {
         name: 'Leonel Alessandro',
         role: 'Frontend Developer',
-        image: '/src/assets/img/Leonel.jpg',
-      }
+        image:
+          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSE2_hhMAxjym0BYoDtlGfHf66u_A5iJu6jpg&usqp=CAU',
+      },
     ],
   }),
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.typing-animation {
+  font-family: Monospace;
+  font-weight: bold;
+  font-size: 30px;
+  margin-bottom: 40px;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.typing-animation::after {
+  content: '|';
+  display: inline-block;
+  vertical-align: bottom;
+  animation: cursor-blink 0.7s infinite;
+}
+
+@keyframes cursor-blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes typing {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes typing-loop {
+  0%,
+  50% {
+    width: 100%;
+  }
+  50.1%,
+  100% {
+    width: 0;
+  }
+}
+
+.typing-animation::before {
+  content: attr(data-text);
+  position: absolute;
+  overflow: hidden;
+  width: 100%;
+  white-space: nowrap;
+  animation: typing 3s steps(40), typing-loop 10s infinite;
+}
+</style>
