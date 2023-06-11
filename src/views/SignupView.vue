@@ -13,20 +13,25 @@
       </div>
 
       <div>
+        <label for="name1" class="block text-900 font-medium mb-2">{{
+          $t('loginpage-name')
+        }}</label>
+        <InputText id="name1" type="text" class="w-full mb-3" v-model="name" />
+
         <label for="email1" class="block text-900 font-medium mb-2">{{
           $t('loginpage-email')
         }}</label>
-        <InputText id="email1" type="text" class="w-full mb-3" />
+        <InputText id="email1" type="text" class="w-full mb-3" v-model="email" />
 
         <label for="password1" class="block text-900 font-medium mb-2">{{
           $t('loginpage-password')
         }}</label>
-        <InputText id="password1" type="password" class="w-full mb-3" />
+        <InputText id="password1" type="password" class="w-full mb-3" v-model="password1" />
 
         <label for="password2" class="block text-900 font-medium mb-2">{{
           $t('loginpage-repeatpassword')
         }}</label>
-        <InputText id="password2" type="password" class="w-full mb-3" />
+        <InputText id="password2" type="password" class="w-full mb-3" v-model="password2" />
 
         <div class="flex align-items-center justify-content-between mb-6">
           <a class="font-medium no-underline ml-2 text-orange-500 text-right cursor-pointer">{{
@@ -34,27 +39,94 @@
           }}</a>
         </div>
 
-        <a href="/login"
-          ><Button
-            :label="$t('register')"
-            icon="pi pi-user"
-            class="w-full bg-orange-400 border-orange-200"
-            @click="onSubmit()"
-          ></Button>
-        </a>
+        <Button
+          :label="$t('register')"
+          icon="pi pi-user"
+          class="w-full bg-orange-400 border-orange-200"
+          @click="onSubmit()"
+        ></Button>
+        <Toast />
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import { userService } from '../services/user.service';
 export default {
   data: () => ({
     checked: false,
   }),
   methods: {
-    onSubmit() {
-      localStorage.setItem('id', '1');
+    async onSubmit() {
+      if (!(await this.validForm())) return;
+      if (!(await this.createUser())) {
+        this.errorToast('Hubo un error al crear la cuenta');
+        return;
+      }
+      this.successToast();
+      await new Promise((resolve) => setTimeout(resolve, 3000));
+      this.$router.push('/profile#login');
+    },
+    async successToast() {
+      this.$toast.add({
+        severity: 'success',
+        summary: 'Success',
+        detail: 'Logged in',
+        life: 3000,
+      });
+    },
+    async errorToast(message) {
+      this.$toast.add({
+        severity: 'error',
+        summary: 'Error',
+        detail: message,
+        life: 3000,
+      });
+    },
+    async validForm() {
+      if (this.name == null || this.email == null || this.password1 == null) {
+        await this.errorToast('Llena los campos indicados');
+        return false;
+      }
+      if (this.name == '' || this.email == '' || this.password1 == '') {
+        await this.errorToast('Llena los campos indicados');
+        return false;
+      }
+      if (this.password1 != this.password2) {
+        await this.errorToast('Las contraseñas no coinciden');
+        return false;
+      }
+      if (this.email.indexOf('@') == -1) {
+        await this.errorToast('El correo no es válido');
+        return false;
+      }
+      if (this.password1.length < 5) {
+        await this.errorToast('La contraseña debe tener al menos 5 caracteres');
+        return false;
+      }
+      return true;
+    },
+    async createUser() {
+      const user = {
+        name: this.name,
+        email: this.email,
+        password: this.password1,
+        phone: '999888777',
+        image: 'https://i.pinimg.com/474x/ab/01/43/ab01437a16fdf57072342eb1a9bc303a.jpg',
+        birthDate: '2000-01-01',
+      };
+      const dataID = {
+        email: this.email,
+        password: this.password1,
+      };
+      try {
+        await userService.create(user);
+        localStorage.setItem('id', await userService.login(dataID));
+        return true;
+      } catch (error) {
+        return false;
+      }
     },
   },
 };

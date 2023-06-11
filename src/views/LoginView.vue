@@ -1,4 +1,6 @@
-<script setup></script>
+<script setup>
+import { userService } from '../services/user.service';
+</script>
 
 <template>
   <div class="justify-content-center flex justify-center align-items-center h-screen">
@@ -16,12 +18,12 @@
         <label for="email1" class="block text-900 font-medium mb-2">{{
           $t('loginpage-email')
         }}</label>
-        <InputText id="email1" type="text" class="w-full mb-3" />
+        <InputText id="email1" type="text" class="w-full mb-3" v-model="email" />
 
         <label for="password1" class="block text-900 font-medium mb-2">{{
           $t('loginpage-password')
         }}</label>
-        <InputText id="password1" type="password" class="w-full mb-3" />
+        <InputText id="password1" type="password" class="w-full mb-3" v-model="password" />
 
         <div class="flex align-items-center justify-content-between mb-6">
           <div class="flex align-items-center">
@@ -33,14 +35,13 @@
           }}</a>
         </div>
 
-        <a href="/search"
-          ><Button
-            :label="$t('login')"
-            icon="pi pi-user"
-            class="w-full bg-orange-400 border-orange-200"
-            @click="onSubmit()"
-          ></Button>
-        </a>
+        <Button
+          :label="$t('login')"
+          icon="pi pi-user"
+          class="w-full bg-orange-400 border-orange-200"
+          @click="onSubmit()"
+        ></Button>
+        <Toast />
       </div>
     </div>
   </div>
@@ -52,8 +53,50 @@ export default {
     checked: false,
   }),
   methods: {
-    onSubmit() {
-      localStorage.setItem('id', '1');
+    async onSubmit() {
+      if (!(await this.validForm())) return;
+      if (!(await this.getUserId())) return;
+      this.$router.push('/profile');
+    },
+    async validForm() {
+      if (this.email == null || this.password == null) {
+        await this.errorToast(this.$t('Complete todos los campos'));
+        return false;
+      }
+      if (this.email == '' || this.password == '') {
+        await this.errorToast(this.$t('Complete todos los campos'));
+        return false;
+      }
+      if (this.email.indexOf('@') == -1) {
+        await this.errorToast(this.$t('Ingrese un email válido'));
+        return false;
+      }
+      if (this.password.length < 5) {
+        await this.errorToast(this.$t('La contraseña debe tener al menos 5 caracteres'));
+        return false;
+      }
+      return true;
+    },
+    async errorToast(message) {
+      this.$toast.add({
+        severity: 'error',
+        summary: 'Error',
+        detail: message,
+        life: 3000,
+      });
+    },
+    async getUserId() {
+      const dataID = {
+        email: this.email,
+        password: this.password,
+      };
+      try {
+        localStorage.setItem('id', await userService.login(dataID));
+        return true;
+      } catch (error) {
+        await this.errorToast('Su email o contraseña son incorrectos');
+        return false;
+      }
     },
   },
 };
