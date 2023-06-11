@@ -7,50 +7,78 @@ import HeaderComponent from '../components/HeaderComponent.vue';
     <div class="surface-ground px-4 py-8 md:px-6 lg:px-8">
       <div class="text-900 font-bold text-6xl mb-4 text-center">{{ $route.params.username }}</div>
       <div class="text-700 text-xl mb-6 text-center line-height-3">
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit numquam eligendi quos.
+        {{ user.description }}
       </div>
 
-      <div class="grid">
-        <div class="col-12 lg:col-4">
-          <div class="p-3 h-full">
+      <div class="surface-section p-5">
+        <div class="font-medium text-3xl text-900 mb-3">Profile Information</div>
+        <div class="text-500 mb-5">
+          {{ user.description }}
+        </div>
+        <ul class="list-none p-0 m-0">
+          <li class="flex align-items-center py-3 px-2 border-top-1 surface-border flex-wrap">
+            <div class="text-500 w-6 md:w-2 font-medium">First Name:</div>
+            <div class="text-900 w-full md:w-8 md:flex-order-0 flex-order-1">
+              {{ user.firstName }}
+            </div>
+          </li>
+          <li class="flex align-items-center py-3 px-2 border-top-1 surface-border flex-wrap">
+            <div class="text-500 w-6 md:w-2 font-medium">Last Name:</div>
+            <div class="text-900 w-full md:w-8 md:flex-order-0 flex-order-1">
+              {{ user.lastName }}
+            </div>
+          </li>
+          <li class="flex align-items-center py-3 px-2 border-top-1 surface-border flex-wrap">
+            <div class="text-500 w-6 md:w-2 font-medium">Phone:</div>
+            <div class="text-900 w-full md:w-8 md:flex-order-0 flex-order-1">
+              {{ user.phone }}
+            </div>
+          </li>
+          <li
+            class="flex align-items-center py-3 px-2 border-top-1 border-bottom-1 surface-border flex-wrap"
+          >
+            <div class="text-500 w-6 md:w-2 font-medium">Bicycles</div>
             <div
-              class="shadow-2 p-3 h-full flex flex-column surface-card"
-              style="border-radius: 6px"
+              v-for="bicycle in user.bicycles"
+              class="text-900 w-full md:w-8 md:flex-order-0 flex-order-1 line-height-3"
             >
-              <div class="text-900 font-medium text-xl mb-2">Bicycles</div>
-              <div class="text-600">List of your rented bicyles</div>
-              <hr class="my-3 mx-0 border-top-1 border-none surface-border" />
-              <div class="flex align-items-center">
-                <span class="font-bold text-2xl text-900">$9</span>
-                <span class="ml-2 font-medium text-600">Lorem ipsum </span>
-              </div>
-              <hr class="my-3 mx-0 border-top-1 border-none surface-border" />
-              <ul class="list-none p-0 m-0 flex-grow-1">
-                <li class="flex align-items-center mb-3">
-                  <i class="pi pi-check-circle text-green-500 mr-2"></i>
-                  <span>Arcu vitae elementum</span>
-                </li>
-                <li class="flex align-items-center mb-3">
-                  <i class="pi pi-check-circle text-green-500 mr-2"></i>
-                  <span>Dui faucibus in ornare</span>
-                </li>
-                <li class="flex align-items-center mb-3">
-                  <i class="pi pi-check-circle text-green-500 mr-2"></i>
-                  <span>Morbi tincidunt augue</span>
+              <ul class="list-none p-0 m-0">
+                <li class="flex align-items-center py-3 px-2 border-top-1 surface-border flex-wrap">
+                  <div class="text-900 w-full md:w-8 md:flex-order-0 flex-order-1">
+                    {{ bicycle.model }} - {{ bicycle.description }}
+                  </div>
                 </li>
               </ul>
-              <hr class="mb-3 mx-0 border-top-1 border-none surface-border mt-auto" />
-              <Button label="Show detail" class="p-3 w-full mt-auto"></Button>
             </div>
-          </div>
-        </div>
+          </li>
+        </ul>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  name: 'ProfileView',
+  data() {
+    return {
+      user: {
+        firstName: 'John',
+        lastName: 'Doe',
+        description: 'this is a description',
+        email: 'john@mail.com',
+        phone: '1234567890',
+        bicycles: [
+          {
+            model: 'giant',
+            description: 'this is a giant bicycle',
+            price: 1000,
+          },
+        ],
+      },
+    };
+  },
+};
 </script>
 
 <style scoped></style>
