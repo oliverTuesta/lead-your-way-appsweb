@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-// const API_URL = 'https://leadyourway.azurewebsites.net/api/card';
-const API_URL = 'http://localhost:5188/api/user';
+const API_URL = 'https://leadyourway.azurewebsites.net/api/card';
+//const API_URL = 'http://localhost:5188/api/user';
 
 export default class CardService {
   async getAll() {
