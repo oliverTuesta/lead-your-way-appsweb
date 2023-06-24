@@ -2,8 +2,20 @@
   <HeaderComponent class="mb-5" />
   <div class="search-container mb-5">
     <div class="search-wrapper">
-      <InputText v-model="searchText" placeholder="Buscar bicicleta" />
-      <Button label="Buscar" class="search-button bg-orange-400" @click.native="updateDates()" />
+      <div class="center">
+        <InputText v-model="searchText" placeholder="Buscar bicicleta" />
+        <Button label="Buscar" class="search-button bg-orange-400" @click.native="updateDates()" />
+      </div>
+      <div class="container">
+        <div class="leftside">
+          <p v-if="startDate != ''"><b>Desde: </b>{{ startDate }}</p>
+          <p v-else><b>Desde: </b><i>Aun no se escoge fecha</i></p>
+        </div>
+        <div class="rightside">
+          <p v-if="endDate != ''"><b>Hasta: </b>{{ endDate }}</p>
+          <p v-else><b>Hasta: </b><i>Aun no se escoge fecha</i></p>
+        </div>
+      </div>
     </div>
     <div class="card flex justify-content-center">
       <Calendar
@@ -42,6 +54,8 @@ export default {
     searchText: '',
     dates: ref(),
     minDate: ref(new Date()),
+    startDate: localStorage.getItem('startDate') || '',
+    endDate: localStorage.getItem('endDate') || '',
   }),
   components: {
     InputText,
@@ -100,7 +114,7 @@ button.search-button:hover {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 3rem;
+  gap: 1rem;
 }
 .cards-wrapper {
   display: grid;
@@ -109,5 +123,26 @@ button.search-button:hover {
   max-width: 80%;
   margin: 0 auto;
   justify-content: center;
+}
+
+.container {
+  display: flex;
+  flex: wrap;
+  margin-top: 1em;
+}
+
+.rightside {
+  width: 50%;
+}
+
+.leftside {
+  width: 50%;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
 }
 </style>
