@@ -1,6 +1,7 @@
 import axios from 'axios';
 
-const API_URL = 'https://leadyourway.azurewebsites.net/api/bicycle';
+// const API_URL = 'https://leadyourway.azurewebsites.net/api/bicycle';
+const API_URL = 'http://localhost:5188/api/bicycle';
 
 export default class BicycleService {
   async getAll() {
