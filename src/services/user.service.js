@@ -30,6 +30,11 @@ export default class UserService {
     const response = await axios.post(`${API_URL}/login`, user);
     return response.data;
   }
+
+  async updateProfile(id, updatedUserData) {
+    const response = await axios.put(`${API_URL}/${id}`, updatedUserData);
+    return response.data;
+  }
 }
 
 export const userService = new UserService();
