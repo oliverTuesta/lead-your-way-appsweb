@@ -196,7 +196,7 @@
   }
   
   .container form .submit-btn:hover {
-    background-color: #c47065;
+    background-color: #c47065;  
   }
   
   .container form .submit-btn:active {
