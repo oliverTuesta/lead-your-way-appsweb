@@ -64,7 +64,7 @@ export default {
     HeaderComponent,
   },
   computed: {
-    filteredCards() {
+    filteredCards() { 
       const searchText = this.searchText.toLowerCase();
       return this.cardsBicycle.filter((card) => {
         return (

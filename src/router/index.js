@@ -46,8 +46,8 @@ const router = createRouter({
       component: UpdateProfileView,
     },
     {
-      path: '/product-purchase',
-      name: 'product-purchase',
+      path: '/rent',
+      name: 'rent',
       component: ProductPurchaseView,
     },
     {

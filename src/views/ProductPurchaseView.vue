@@ -3,8 +3,8 @@
       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   </head>
-  
-    <div class="principal-container">
+  <Toast />
+    <div v-if="bicycle" class="principal-container">
       <div class="container d-lg-flex">
         <div class="box-1 bg-light user">
             <div class="d-flex align-items-center mb-3 custom-div">
@@ -14,8 +14,8 @@
             </div>
             <div class="box-inner-1 pb-3 mb-3 ">
                 <div class="d-flex justify-content-between mb-3 userdetails">
-                    <p class="fw-bold">Bicicleta a rentar</p>
-                    <p class="fw-lighter"><span class="fas fa-dollar-sign"></span>33.00+</p>
+                    <p class="fw-bold">Bicicleta a rentar: {{  bicycle.name }}</p>
+                    <p class="fw-lighter"><span class="fas fa-dollar-sign"></span>{{ bicycle.price}}</p>
                 </div>
                 <div id="my" class="carousel slide carousel-fade img-details" 
                     data-bs-interval="2000">
@@ -27,15 +27,15 @@
                     </div>
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <img src="https://images.pexels.com/photos/100582/pexels-photo-100582.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
+                            <img :src="bicycle.image"
                                 class="d-block w-100">
                         </div>
                         <div class="carousel-item">
-                            <img src="https://images.pexels.com/photos/1068596/pexels-photo-1068596.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                            <img src="https://i.imgflip.com/20qjbb.jpg"
                                 class="d-block w-100 h-100">
                         </div>
                         <div class="carousel-item">
-                            <img src="https://images.pexels.com/photos/5465057/pexels-photo-5465057.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                            <img src="https://i.kym-cdn.com/photos/images/original/002/449/093/854.jpg"
                                 class="d-block w-100">
                         </div>
                     </div>
@@ -61,21 +61,22 @@
                     <input type="checkbox" class="btn-check" autocomplete="off" name="box" id="one">
                     <input type="checkbox" class="btn-check" autocomplete="off" name="box" id="two">
                     <input type="checkbox" class="btn-check" autocomplete="off" name="box" id="three">
-                    <label for="one" class="box py-2 first">
+
+                    <label for="one" class="box py-2 first" @click="calculatePrice(0)">
                         <div class="d-flex align-items-start">
                             <span class="circle"></span>
                             <div class="course">
                                 <div class="d-flex align-items-center justify-content-between mb-2">
-                                    <span class="fw-bold">
+                                    <p class="fw-bold">
                                         Seguro de Responsabilidad Civil
-                                    </span>
-                                    <span class="fas fa-dollar-sign">19</span>
+                                    </p>
+                                    <p><span class="fas fa-dollar-sign"></span>19</p>
                                 </div>
                                 <span>Cubre daños a terceros en caso de accidentes relacionados a las bicicletas</span>
                             </div>
                         </div>
                     </label>
-                    <label for="two" class="box py-2 second">
+                    <label for="two" class="box py-2 second" @click="calculatePrice(1)">
                         <div class="d-flex">
                             <span class="circle"></span>
                             <div class="course">
@@ -83,13 +84,13 @@
                                     <span class="fw-bold">
                                         Seguro contra Robo o Pérdida
                                     </span>
-                                    <span class="fas fa-dollar-sign">29</span>
+                                    <p><span class="fas fa-dollar-sign"></span>29</p>
                                 </div>
                                 <span>Proporciona cobertura en caso de robo o pérdida de las bicicletas arrendadas.</span>
                             </div>
                         </div>
                     </label>
-                    <label for="three" class="box py-2 third">
+                    <label for="three" class="box py-2 third" @click="calculatePrice(2)">
                         <div class="d-flex">
                             <span class="circle"></span>
                             <div class="course">
@@ -97,7 +98,7 @@
                                     <span class="fw-bold">
                                         Seguro de Daños o Accidentes
                                     </span>
-                                    <span class="fas fa-dollar-sign">39</span>
+                                    <p><span class="fas fa-dollar-sign"></span>39</p>
                                 </div>
                                 <span>Cubre daños materiales y lesiones personales a los arrendatarios en caso de accidentes con las bicicletas.</span>
                             </div>
@@ -179,19 +180,19 @@
                             <div class="my-3 d-flex flex-column dis">
                               <p class="dis fw-bold mb-3">Resumen</p>
                                 <div class="d-flex align-items-center justify-content-between mb-2">
-                                    <p>Subtotal</p>
-                                    <p><span class="fas fa-dollar-sign"></span>33.00</p>
+                                    <p>Subtotal (precio de la bicicleta * numero de días)</p>
+                                    <p><span class="fas fa-dollar-sign"></span>{{ subTotal }}</p>
                                 </div>
                                 <div class="d-flex align-items-center justify-content-between mb-2">
-                                    <p>Seguro</p>
-                                    <p><span class="fas fa-dollar-sign"></span>19.0</p>
+                                    <p>Seguros</p>
+                                    <p><span class="fas fa-dollar-sign"></span>{{ insuranceTotal }}</p>
                                 </div>
                                 <div class="d-flex align-items-center justify-content-between mb-2">
                                     <p class="fw-bold">Total</p>
-                                    <p class="fw-bold"><span class="fas fa-dollar-sign"></span>52.00</p>
+                                    <p class="fw-bold"><span class="fas fa-dollar-sign"></span>{{  total }}</p>
                                 </div>
-                                <div class="btn btn-primary mt-2">Pay<span class="fas fa-dollar-sign px-1"></span>52.00
-                                </div>
+                                <button @click.prevent="rentBicycle()" class="btn btn-primary mt-2">Pay<span class="fas fa-dollar-sign px-1"></span>{{ total }}
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -203,13 +204,98 @@
   </template>
   
   <script>
+  import { bicycleService } from '../services/bicycle.lyw.service';
+  import { rentService } from '../services/rent.lyw.service';
   export default {
+    data() {
+      return {
+        bicycle: undefined,
+        liabilityInsurance: false,
+        theftInsurance: false,
+        accidentInsurance: false,
+        subTotal: 0.0,
+        insuranceTotal: 0.0,
+        total: 0.0,
+      }
+    },
+
+    methods: {
+      calculatePrice(insuranceId) {
+
+        switch (insuranceId) {
+          case 0:
+            this.liabilityInsurance = !this.liabilityInsurance;
+            break;
+          case 1:
+            this.theftInsurance = !this.theftInsurance;
+            break;
+          case 2:
+            this.accidentInsurance = !this.accidentInsurance;
+            break;
+        }
+        const startDate = localStorage.getItem('startDate');
+        const endDate = localStorage.getItem('endDate');
+        const days = (new Date(endDate) - new Date(startDate)) / (1000 * 60 * 60 * 24);
+        this.subTotal = this.bicycle.price * days;
+        this.insuranceTotal = 0.0;
+        if (this.liabilityInsurance) {
+          this.insuranceTotal += 19.0;
+        }
+        if (this.theftInsurance) {
+          this.insuranceTotal += 29.0;
+        }
+        if (this.accidentInsurance) {
+          this.insuranceTotal += 39.0;
+        }
+        this.total = this.subTotal + this.insuranceTotal;
+      },
+      rentBicycle() {
+        console.log('renting bicycle');
+        const startDate = localStorage.getItem('startDate');
+        const endDate = localStorage.getItem('endDate');
+        const rent = {
+          startDate: startDate,
+          endDate: endDate,
+          totalPrice: this.total,
+          cardId: 1, // TODO: get card id from user
+          bicycleId: this.bicycle.id,
+        };
+        rentService.create(rent).then((response) => {
+          console.log(response);
+          //this.$router.push('/search');
+          this.$toast.add({
+            severity: 'success',
+            summary: 'Success',
+            detail: 'Bicicleta rentada exitosamente',
+            life: 3000,
+          });
+        }, (error) => {
+          console.log(error);
+          this.$toast.add({
+            severity: 'error',
+            summary: 'Error',
+            detail: 'Ocurrió un error al rentar la bicicleta',
+            life: 3000,
+          });
+        }
+        );
+      },
+    },
+
     mounted() {
       const script = document.createElement('script');
       script.src = 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js';
       script.integrity = 'sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe';
       script.crossOrigin = 'anonymous';
       document.body.appendChild(script);
+      const bicycleId = localStorage.getItem('bicycleId');
+      if (bicycleId.length > 0) {
+          bicycleService.getById(bicycleId).then((response) => {
+            this.bicycle = response;
+            this.calculatePrice(-1);
+          });
+      }
+      
     },
   };
   </script>

@@ -16,7 +16,7 @@
       <template #footer>
         <div class="footer-content">
           <span class="price">S/. {{ price }}</span>
-          <a :href="`/bicycle/${id}`">
+          <a :href="`/rent`" :on-click="saveBike()">
             <Button
               icon="pi pi-check"
               label="Rentar"
@@ -51,6 +51,9 @@ export default {
     isAvailable: true,
     startDate: localStorage.getItem('startDate') || '',
     endDate: localStorage.getItem('endDate') || '',
+    saveBike() {
+      localStorage.setItem('bicycleId', this.id);
+    }
   }),
   components: {
     Card,
