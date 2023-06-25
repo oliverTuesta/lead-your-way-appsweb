@@ -3,121 +3,122 @@ import moment from 'moment';
 import HeaderComponent from '../components/HeaderComponent.vue';
 import { userService } from '../services/user.service';
 import { bicycleService } from '../services/bicycle.lyw.service';
+import { cardService } from '../services/card.lyw.service';
 </script>
 <template>
-<head>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-</head>
-
-<div class="header-component-wrapper">
-    <HeaderComponent class="mb-5"/>
-</div>
-
-<div class="container">
-    <div class="main-body">
-          <div class="row gutters-sm">
-            <div class="col-md-4 mb-3">
-              <div class="card">
-                <div class="card-body">
-                  <div class="d-flex flex-column align-items-center text-center">
-                    <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">
-                    <div class="mt-3">
-                      <h4>{{ user.name }}</h4>
-                      <p class="text-secondary mb-1">{{ user.email }}</p>
-                      <p class="text-muted font-size-sm">Miembro desde {{ moment(user.dateCreated).format('YYYY-MM-DD')}}</p>
-                      <button class="btn btn-primary">Cerrar Sesión</button>
+  <head>
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  </head>
+  
+  <div class="header-component-wrapper">
+      <HeaderComponent class="mb-5"/>
+  </div>
+  
+  <div class="container">
+      <div class="main-body">
+            <div class="row gutters-sm">
+              <div class="col-md-4 mb-3">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="d-flex flex-column align-items-center text-center">
+                      <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">
+                      <div class="mt-3">
+                        <h4>{{ user.name }}</h4>
+                        <p class="text-secondary mb-1">{{ user.email }}</p>
+                        <p class="text-muted font-size-sm">Miembro desde {{ moment(user.dateCreated).format('YYYY-MM-DD')}}</p>
+                        <button class="btn btn-primary">Cerrar Sesión</button>
+                      </div>
                     </div>
                   </div>
                 </div>
+                <div class="card mt-3">
+                  <ul class="list-group list-group-flush">
+                    <h6 class="fw-normal m-3">Metodos de Pago</h6>
+                    <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                      <i class="fa-brands fa-paypal fa-lg" style="color: #003087"></i>
+                      <span class="text-secondary">{{ user.name }}</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                      <i class="fa-brands fa-cc-visa" style="color: #1a1f71"></i>
+                      <p class="mb-0">1234 1234 4321 1235</p>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                      <a href="/payment-method"><button class="btn btn-primary">Añadir Método</button> </a>
+                    </li>
+  
+                  </ul>
+                </div>
               </div>
-              <div class="card mt-3">
-                <ul class="list-group list-group-flush">
-                  <h6 class="fw-normal m-3">Metodos de Pago</h6>
-                  <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-                    <i class="fa-brands fa-paypal fa-lg" style="color: #003087"></i>
-                    <span class="text-secondary">{{ user.name }}</span>
-                  </li>
-                  <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-                    <i class="fa-brands fa-cc-visa" style="color: #1a1f71"></i>
-                    <p class="mb-0">1234 1234 4321 1235</p>
-                  </li>
-                  <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-                    <a href="/payment-method"><button class="btn btn-primary">Añadir Método</button> </a>
-                  </li>
-
-                </ul>
+              <div class="col-md-8">
+                <div class="card mb-3">
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-sm-3">
+                        <h6 class="mb-0">Full Name</h6>
+                      </div>
+                      <div class="col-sm-9 text-secondary">
+                        {{ user.name }}
+                      </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                      <div class="col-sm-3">
+                        <h6 class="mb-0">Email</h6>
+                      </div>
+                      <div class="col-sm-9 text-secondary">
+                        {{ user.email }}
+                      </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                      <div class="col-sm-3">
+                        <h6 class="mb-0">Phone</h6>
+                      </div>
+                      <div class="col-sm-9 text-secondary">
+                        {{ user.phone }}
+                      </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                      <div class="col-sm-3">
+                        <h6 class="mb-0">BirthDate</h6>
+                      </div>
+                      <div class="col-sm-9 text-secondary">
+                        {{ moment(user.birthDate).format('YYYY-MM-DD') }}
+                      </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                      <div class="col-sm-12">
+                        <a class="btn btn-info " target="__blank">Edit Profile</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+  
+                <div class="row gutters-sm">
+                  <div class="col-sm-6 mb-3">
+                    <div class="card h-100">
+                      <div class="card-body">
+                        
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-6 mb-3">
+                    <div class="card h-100">
+                      <div class="card-body">
+                        
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
-            <div class="col-md-8">
-              <div class="card mb-3">
-                <div class="card-body">
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <h6 class="mb-0">Full Name</h6>
-                    </div>
-                    <div class="col-sm-9 text-secondary">
-                      {{ user.name }}
-                    </div>
-                  </div>
-                  <hr>
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <h6 class="mb-0">Email</h6>
-                    </div>
-                    <div class="col-sm-9 text-secondary">
-                      {{ user.email }}
-                    </div>
-                  </div>
-                  <hr>
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <h6 class="mb-0">Phone</h6>
-                    </div>
-                    <div class="col-sm-9 text-secondary">
-                      {{ user.phone }}
-                    </div>
-                  </div>
-                  <hr>
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <h6 class="mb-0">BirthDate</h6>
-                    </div>
-                    <div class="col-sm-9 text-secondary">
-                      {{ moment(user.birthDate).format('YYYY-MM-DD') }}
-                    </div>
-                  </div>
-                  <hr>
-                  <div class="row">
-                    <div class="col-sm-12">
-                      <a class="btn btn-info " target="__blank">Edit Profile</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="row gutters-sm">
-                <div class="col-sm-6 mb-3">
-                  <div class="card h-100">
-                    <div class="card-body">
-                      
-                    </div>
-                  </div>
-                </div>
-                <div class="col-sm-6 mb-3">
-                  <div class="card h-100">
-                    <div class="card-body">
-                      
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+  
           </div>
-
-        </div>
-    </div>
-</template>
+      </div>
+  </template>
 
 <script>
 export default {
@@ -150,11 +151,25 @@ export default {
     await bicycleService.getByUserId(id).then((response) => {
       this.user.bicycles = response;
     });
+    await cardService.getByUserId(id).then((response) => {
+      this.user.cards = response;
+    });
   },
   data() {
     return {
       user: {},
     };
+  },
+  methods: {
+    async logout() {
+      localStorage.removeItem('id');
+      this.$router.push('/home');
+    },
+    masCardNumber(number) {
+      const maskedNumber = number.slice(-4).padStart(number.length, 'x');
+      const formattedNumber = maskedNumber.replace(/(.{4})/g, '$1 - ');
+      return formattedNumber.slice(0, -3);
+    },
   },
 };
 </script>
@@ -218,6 +233,4 @@ body{
   padding: 5px;
   color: #6366F1;
 }
-
-
 </style>

@@ -15,9 +15,23 @@
       </template>
       <template #footer>
         <div class="footer-content">
-          <span class="price">{{ price }}</span>
+          <span class="price">S/. {{ price }}</span>
           <a :href="`/bicycle/${id}`">
-            <Button icon="pi pi-check" label="Rentar" class="rent-button" />
+            <Button
+              icon="pi pi-check"
+              label="Rentar"
+              class="rent-button"
+              id="btn-rent"
+              v-if="isAvailable"
+            />
+            <Button
+              icon="pi pi-times"
+              label="No Disponible"
+              class="rent-button"
+              id="btn-rent"
+              v-else
+              disabled
+            />
           </a>
         </div>
       </template>
@@ -30,8 +44,14 @@ import { ref } from 'vue';
 import Card from 'primevue/card';
 import Button from 'primevue/button';
 import Rating from 'primevue/rating';
+import { rentService } from '../services/rent.lyw.service';
 const value = ref(null);
 export default {
+  data: () => ({
+    isAvailable: true,
+    startDate: localStorage.getItem('startDate') || '',
+    endDate: localStorage.getItem('endDate') || '',
+  }),
   components: {
     Card,
     Button,
@@ -50,6 +70,14 @@ export default {
     price: String,
     image: String,
     averageRating: Number,
+  },
+  async mounted() {
+    try {
+      const isAvailable = await rentService.bikeAvailable(this.id, this.startDate, this.endDate);
+      this.isAvailable = isAvailable;
+    } catch (error) {
+      this.isAvailable = false;
+    }
   },
 };
 </script>

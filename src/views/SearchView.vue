@@ -1,9 +1,30 @@
 <template>
   <HeaderComponent class="mb-5" />
-  <div class="search-container">
+  <div class="search-container mb-5">
     <div class="search-wrapper">
-      <InputText v-model="searchText" placeholder="Buscar bicicleta" />
-      <Button label="Buscar" class="search-button bg-orange-400" />
+      <div class="center">
+        <InputText v-model="searchText" placeholder="Buscar bicicleta" />
+        <Button label="Buscar" class="search-button bg-orange-400" @click.native="updateDates()" />
+      </div>
+      <div class="container">
+        <div class="leftside">
+          <p v-if="startDate != ''"><b>Desde: </b>{{ startDate }}</p>
+          <p v-else><b>Desde: </b><i>Aun no se escoge fecha</i></p>
+        </div>
+        <div class="rightside">
+          <p v-if="endDate != ''"><b>Hasta: </b>{{ endDate }}</p>
+          <p v-else><b>Hasta: </b><i>Aun no se escoge fecha</i></p>
+        </div>
+      </div>
+    </div>
+    <div class="card flex justify-content-center">
+      <Calendar
+        v-model="dates"
+        selectionMode="range"
+        :manualInput="false"
+        inline
+        :min-date="minDate"
+      />
     </div>
     <div class="cards-wrapper">
       <CardBicycle
@@ -26,11 +47,15 @@ import Button from 'primevue/button';
 import CardBicycle from '../components/CardBicycle.vue';
 import HeaderComponent from '@/components/HeaderComponent.vue';
 import { bicycleService } from '../services/bicycle.lyw.service';
+import { ref } from 'vue';
 export default {
   data: () => ({
     cardsBicycle: [],
     searchText: '',
-    //bicycleApiService: new BicycleApiService(),
+    dates: ref(),
+    minDate: ref(new Date()),
+    startDate: localStorage.getItem('startDate') || '',
+    endDate: localStorage.getItem('endDate') || '',
   }),
   components: {
     InputText,
@@ -51,12 +76,21 @@ export default {
     },
   },
   async mounted() {
-    //const bicycleApiService = new bicycleService();
     try {
       this.cardsBicycle = await bicycleService.getAll();
     } catch (error) {
       console.log(error);
     }
+    this.minDate.setDate(this.minDate.getDate() + 1);
+  },
+  methods: {
+    updateDates() {
+      if (this.dates != null && this.dates[0] != null && this.dates[1] != null) {
+        localStorage.setItem('startDate', this.dates[0].toISOString().split('T')[0]);
+        localStorage.setItem('endDate', this.dates[1].toISOString().split('T')[0]);
+        window.location.reload();
+      }
+    },
   },
 };
 </script>
@@ -80,7 +114,7 @@ button.search-button:hover {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 3rem;
+  gap: 1rem;
 }
 .cards-wrapper {
   display: grid;
@@ -89,5 +123,26 @@ button.search-button:hover {
   max-width: 80%;
   margin: 0 auto;
   justify-content: center;
+}
+
+.container {
+  display: flex;
+  flex: wrap;
+  margin-top: 1em;
+}
+
+.rightside {
+  width: 50%;
+}
+
+.leftside {
+  width: 50%;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
 }
 </style>

@@ -1,9 +1,9 @@
 import axios from 'axios';
 
-const API_URL = 'https://leadyourway.azurewebsites.net/api/bicycle';
-//const API_URL = 'http://localhost:5188/api/bicycle';
+const API_URL = 'https://leadyourway.azurewebsites.net/api/card';
+//const API_URL = 'http://localhost:5188/api/user';
 
-export default class BicycleService {
+export default class CardService {
   async getAll() {
     const response = await axios.get(API_URL);
     return response.data;
@@ -19,12 +19,12 @@ export default class BicycleService {
     return response.data;
   }
 
-  async create(bicycle) {
-    return axios.post(API_URL, bicycle);
+  async create(card) {
+    return axios.post(API_URL, card);
   }
 
-  async update(bicycle) {
-    return axios.put(`${API_URL}/${bicycle.id}`, bicycle);
+  async update(card) {
+    return axios.put(`${API_URL}/${card.id}`, card);
   }
 
   async delete(id) {
@@ -32,4 +32,4 @@ export default class BicycleService {
   }
 }
 
-export const bicycleService = new BicycleService();
+export const cardService = new CardService();

@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:5188/api/user';
-// const API_URL = 'https://leadyourway.azurewebsites.net/api/bicycle';
+const API_URL = 'https://leadyourway.azurewebsites.net/api/user';
+//const API_URL = 'http://localhost:5188/api/user';
 
 export default class UserService {
   async getAll() {
@@ -28,6 +28,11 @@ export default class UserService {
 
   async login(user) {
     const response = await axios.post(`${API_URL}/login`, user);
+    return response.data;
+  }
+
+  async updateProfile(id, updatedUserData) {
+    const response = await axios.put(`${API_URL}/${id}`, updatedUserData);
     return response.data;
   }
 }
