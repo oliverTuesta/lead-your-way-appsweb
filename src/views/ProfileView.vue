@@ -1,77 +1,122 @@
 <script setup>
+import moment from 'moment';
 import HeaderComponent from '../components/HeaderComponent.vue';
 import { userService } from '../services/user.service';
 import { bicycleService } from '../services/bicycle.lyw.service';
 </script>
 <template>
-  <HeaderComponent class="mb-5" />
-  <div v-if="user">
-    <Toast />
-    <div class="surface-ground px-4 py-8 md:px-6 lg:px-8">
-      <div class="text-900 font-bold text-6xl mb-4 text-center">{{ user.name }}</div>
-      <div class="w-full flex justify-content-center">
-        <img class="max-w-18rem border-round-md" :src="user.image" alt="Profile Picture" />
-      </div>
-      <div class="text-700 text-xl mb-6 text-center line-height-3">
-        {{ user.description }}
-      </div>
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
 
-      <div class="surface-section p-5">
-        <div class="font-medium text-3xl text-900 mb-3">Profile Information</div>
-        <div class="text-500 mb-5">
-          {{ user.description }}
-        </div>
-        <ul class="list-none p-0 m-0">
-          <li class="flex align-items-center py-3 px-2 border-top-1 surface-border flex-wrap">
-            <div class="text-500 w-6 md:w-2 font-medium">Name:</div>
-            <div class="text-900 w-full md:w-8 md:flex-order-0 flex-order-1">
-              {{ user.name }}
-            </div>
-          </li>
-          <li class="flex align-items-center py-3 px-2 border-top-1 surface-border flex-wrap">
-            <div class="text-500 w-6 md:w-2 font-medium">Email:</div>
-            <div class="text-900 w-full md:w-8 md:flex-order-0 flex-order-1">
-              {{ user.email }}
-            </div>
-          </li>
-          <li class="flex align-items-center py-3 px-2 border-top-1 surface-border flex-wrap">
-            <div class="text-500 w-6 md:w-2 font-medium">Phone:</div>
-            <div class="text-900 w-full md:w-8 md:flex-order-0 flex-order-1">
-              {{ user.phone }}
-            </div>
-          </li>
-          <li
-            class="flex align-items-center py-3 px-2 border-top-1 border-bottom-1 surface-border flex-wrap"
-          >
-            <div class="text-500 w-6 md:w-2 font-medium">Bicycles</div>
-            <div
-              v-for="bicycle in user.bicycles"
-              class="text-900 w-full md:w-8 md:flex-order-0 flex-order-1 line-height-3"
-            >
-              <ul class="list-none p-0 m-0">
-                <li class="flex align-items-center py-3 px-2 border-top-1 surface-border flex-wrap">
-                  <div class="text-900 w-full md:w-8 md:flex-order-0 flex-order-1">
-                    {{ bicycle.name }} - {{ bicycle.description }}
+<div class="header-component-wrapper">
+    <HeaderComponent class="mb-5"/>
+</div>
+
+<div class="container">
+    <div class="main-body">
+          <div class="row gutters-sm">
+            <div class="col-md-4 mb-3">
+              <div class="card">
+                <div class="card-body">
+                  <div class="d-flex flex-column align-items-center text-center">
+                    <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">
+                    <div class="mt-3">
+                      <h4>{{ user.name }}</h4>
+                      <p class="text-secondary mb-1">{{ user.email }}</p>
+                      <p class="text-muted font-size-sm">Miembro desde {{ moment(user.dateCreated).format('YYYY-MM-DD')}}</p>
+                      <button class="btn btn-primary">Cerrar Sesión</button>
+                    </div>
                   </div>
-                </li>
-              </ul>
+                </div>
+              </div>
+              <div class="card mt-3">
+                <ul class="list-group list-group-flush">
+                  <h6 class="fw-normal m-3">Metodos de Pago</h6>
+                  <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                    <i class="fa-brands fa-paypal fa-lg" style="color: #003087"></i>
+                    <span class="text-secondary">{{ user.name }}</span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                    <i class="fa-brands fa-cc-visa" style="color: #1a1f71"></i>
+                    <p class="mb-0">1234 1234 4321 1235</p>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                    <a href="/payment-method"><button class="btn btn-primary">Añadir Método</button> </a>
+                  </li>
+
+                </ul>
+              </div>
             </div>
-          </li>
-        </ul>
-      </div>
+            <div class="col-md-8">
+              <div class="card mb-3">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Full Name</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      {{ user.name }}
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Email</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      {{ user.email }}
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Phone</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      {{ user.phone }}
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">BirthDate</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      {{ moment(user.birthDate).format('YYYY-MM-DD') }}
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <a class="btn btn-info " target="__blank">Edit Profile</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row gutters-sm">
+                <div class="col-sm-6 mb-3">
+                  <div class="card h-100">
+                    <div class="card-body">
+                      
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-6 mb-3">
+                  <div class="card h-100">
+                    <div class="card-body">
+                      
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
     </div>
-  </div>
-  <div v-else>
-    <div class="px-4 py-8 md:px-6 lg:px-8 bgColor">
-      <div class="text-900 font-bold text-6xl mb-4 text-center">
-        <img
-          src="https://art.pixilart.com/ec39f926a73a5eb.gif"
-          alt="Lead Your Way logo"
-          class="mb-3 gifImg"
-        />
-      </div>
-    </div>
-  </div>
 </template>
 
 <script>
@@ -115,13 +160,64 @@ export default {
 </script>
 
 <style scoped>
-.gifImg {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
+body{
+    margin-top:20px;
+    color: #1a202c;
+    text-align: left;
+    background-color: #e2e8f0;    
+}
+.main-body {
+    padding: 15px;
+}
+.card {
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,.1), 0 1px 2px 0 rgba(0,0,0,.06);
 }
 
-.bgColor {
-  background-color: #f5f5f5;
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 0 solid rgba(0,0,0,.125);
+    border-radius: .25rem;
 }
+
+.card-body {
+    flex: 1 1 auto;
+    min-height: 1px;
+    padding: 1rem;
+}
+
+.gutters-sm {
+    margin-right: -8px;
+    margin-left: -8px;
+}
+
+.gutters-sm>.col, .gutters-sm>[class*=col-] {
+    padding-right: 8px;
+    padding-left: 8px;
+}
+.mb-3, .my-3 {
+    margin-bottom: 1rem!important;
+}
+
+.bg-gray-300 {
+    background-color: #e2e8f0;
+}
+.h-100 {
+    height: 100%!important;
+}
+.shadow-none {
+    box-shadow: none!important;
+}
+
+.header-component-wrapper{
+  padding: 5px;
+  color: #6366F1;
+}
+
+
 </style>
