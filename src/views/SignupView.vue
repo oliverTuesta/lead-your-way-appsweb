@@ -45,7 +45,6 @@
           class="w-full bg-orange-400 border-orange-200"
           @click="onSubmit()"
         ></Button>
-        <Toast />
       </div>
     </div>
   </div>

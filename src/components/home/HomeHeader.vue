@@ -11,7 +11,7 @@
       </p>
     </div>
     <div class="toolbar-right">
-      <p>
+      <p v-if="!user">
         <a href="/login"><button class="login-button">Login</button></a>
         <a href="/signup"><button class="signup-button">Sign up</button></a>
       </p>
@@ -21,6 +21,11 @@
 <script>
 export default {
   name: 'HomeHeader',
+  data() {
+    return {
+      user: localStorage.getItem('id'),
+    };
+  },
 };
 </script>
 

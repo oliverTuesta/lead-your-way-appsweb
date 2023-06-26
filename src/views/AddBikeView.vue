@@ -63,7 +63,6 @@
       </TabPanel>
       <TabPanel header="Fotos">
         <div class="cardUpload mt-3 mb-5 height">
-          <Toast />
           <FileUpload name="demo[]" :multiple="true" accept="image/*" :maxFileSize="1000000">
             <template #header="{ chooseCallback, clearCallback, files }">
               <div class="flex flex-wrap justify-content-between align-items-center flex-1 gap-2">
@@ -103,7 +102,6 @@
       </TabPanel>
     </TabView>
   </div>
-  <Toast />
 </template>
 
 <script setup>

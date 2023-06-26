@@ -16,23 +16,23 @@
       <template #footer>
         <div class="footer-content">
           <span class="price">S/. {{ price }}</span>
-          <a :href="`/bicycle/${id}`">
-            <Button
-              icon="pi pi-check"
-              label="Rentar"
-              class="rent-button"
-              id="btn-rent"
-              v-if="isAvailable"
-            />
-            <Button
-              icon="pi pi-times"
-              label="No Disponible"
-              class="rent-button"
-              id="btn-rent"
-              v-else
-              disabled
-            />
-          </a>
+          <Button
+            icon="pi pi-check"
+            label="Rentar"
+            class="rent-button"
+            id="btn-rent"
+            v-if="isAvailable"
+            :disabled="!isAvailable || !user"
+            @click="saveBike()"
+          />
+          <Button
+            icon="pi pi-times"
+            label="No Disponible"
+            class="rent-button"
+            id="btn-rent"
+            v-else
+            disabled
+          />
         </div>
       </template>
     </Card>
@@ -51,7 +51,14 @@ export default {
     isAvailable: true,
     startDate: localStorage.getItem('startDate') || '',
     endDate: localStorage.getItem('endDate') || '',
+    user: localStorage.getItem('id'),
   }),
+  methods: {
+    saveBike() {
+      localStorage.setItem('bicycleId', this.id);
+      this.$router.push('/rent');
+    },
+  },
   components: {
     Card,
     Button,
