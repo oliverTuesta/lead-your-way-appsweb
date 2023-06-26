@@ -104,9 +104,9 @@
             </div>
           </div>
         </div>
-        <button type="submit" class="submit-btn btn-primary">
+        <Button type="submit" class="submit-btn btn-primary">
           Añadir método
-        </button>
+        </Button>
       </form>
     </div>
   </div>
@@ -146,7 +146,7 @@ export default {
         return;
       }
       try {
-        await this.create();
+        await this.createCard();
         this.successToast();
         await new Promise((resolve) => setTimeout(resolve, 3000));
       } catch (error) {
@@ -176,7 +176,7 @@ export default {
       }
 
       const expYear = parseInt(this.PaymentData.exp_year, 10);
-      const expMonth = parseInt(this.PaymentData.mes_exp, 10);
+      const expMonth = parseInt(this.PaymentData.exp_month, 10);
       const currentYear = new Date().getFullYear();
       const currentMonth = new Date().getMonth() + 1;
 
