@@ -5,14 +5,13 @@ import { userService } from '../services/user.service';
 <template>
   <HeaderComponent class="mb-5" />
   <div v-if="user">
-    <Toast />
     <div class="surface-ground px-4 py-8 md:px-6 lg:px-8">
       <div class="text-900 font-bold text-6xl mb-4 text-center">{{ user.name }}</div>
       <div class="w-full flex justify-content-center">
         <img class="max-w-18rem border-round-md" :src="user.image" alt="Profile Picture" />
       </div>
       <div class="text-700 text-xl mb-6 text-center line-height-3">
-        {{ user.email}}
+        {{ user.email }}
       </div>
 
       <div class="surface-section p-5">
@@ -71,7 +70,7 @@ export default {
   data() {
     return {
       user: {},
-      id: localStorage.getItem('id')||'',
+      id: localStorage.getItem('id') || '',
     };
   },
   methods: {
