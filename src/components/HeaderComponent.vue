@@ -5,8 +5,8 @@
     </template>
 
     <template #end>
-      <a href="/profile"> <Button class="mr-2 text-bold">Profile</Button> </a>
-      <a href="/create"> <Button class="mr-2 text-bold">Add Bike</Button> </a>
+      <a v-if="user" href="/profile"> <Button class="mr-2 text-bold">Profile</Button> </a>
+      <a v-if="user" href="/create"> <Button class="mr-2 text-bold">Add Bike</Button> </a>
       <a href="/search">
         <Button class="mr-2 text-bold"> <i class="pi pi-search mr-2"></i> Search </Button>
       </a>
@@ -16,5 +16,13 @@
 <script>
 export default {
   name: 'HomeHeader',
+  data() {
+    return {
+      user: null,
+    };
+  },
+  mounted() {
+    this.user = localStorage.getItem('id');
+  },
 };
 </script>
