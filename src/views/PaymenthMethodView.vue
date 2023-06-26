@@ -2,7 +2,7 @@
   <div>
     <app-user-header></app-user-header>
     <div class="container">
-      <form @submit="onSubmit" ref="PaymentForm">
+      <form @submit.prevent="onSubmit" ref="PaymentForm">
         <div class="row">
           <h1 class="title">Métodos de pago</h1>
           <div class="col">
@@ -94,19 +94,11 @@
             </div>
             <div class="inputBox" style="margin-top: 0">
               <label for="cvv">CVV :</label>
-              <input
-                v-model="PaymentData.cvv"
-                type="text"
-                id="cvv"
-                placeholder="1234"
-                required
-              />
+              <input v-model="PaymentData.cvv" type="text" id="cvv" placeholder="1234" required />
             </div>
           </div>
         </div>
-        <Button type="submit" class="submit-btn btn-primary">
-          Añadir método
-        </Button>
+        <Button type="submit" class="submit-btn btn-primary"> Añadir método </Button>
       </form>
     </div>
   </div>
@@ -119,9 +111,7 @@ export default {
   name: 'PaymentMethodView',
   async mounted() {
     const id = localStorage.getItem('id');
-    await cardService.getByUserId(id).then((response) => {
-      this.userId = response;
-    });
+    await cardService.getByUserId(id).then((response) => {});
   },
   data() {
     return {
@@ -135,7 +125,7 @@ export default {
         cvv: '',
         cardType: '',
       },
-      userId: null,
+      userId: localStorage.getItem('id'),
     };
   },
   methods: {
@@ -180,17 +170,12 @@ export default {
       const currentYear = new Date().getFullYear();
       const currentMonth = new Date().getMonth() + 1;
 
-      if (
-        expYear < currentYear ||
-        (expYear === currentYear && expMonth < currentMonth)
-      ) {
+      if (expYear < currentYear || (expYear === currentYear && expMonth < currentMonth)) {
         this.errorToast('La tarjeta ha expirado');
         return false;
       }
 
-      if (
-        !/^\d{3,4}$/.test(this.PaymentData.cvv)
-      ) {
+      if (!/^\d{3,4}$/.test(this.PaymentData.cvv)) {
         this.errorToast('CVV inválido');
         return false;
       }
@@ -207,7 +192,7 @@ export default {
           type: this.PaymentData.cardType,
           userId: this.userId,
         };
-
+        console.log(cardData);
         const response = await cardService.create(cardData);
         return response.data;
       } catch (error) {
@@ -216,7 +201,7 @@ export default {
       }
     },
     async successToast() {
-        this.$toast.add({
+      this.$toast.add({
         severity: 'success',
         summary: 'Éxito',
         detail: 'Método de pago creado',
@@ -224,7 +209,7 @@ export default {
       });
     },
     async errorToast(message) {
-        this.$toast.add({
+      this.$toast.add({
         severity: 'error',
         summary: 'Error',
         detail: message,
@@ -354,7 +339,7 @@ function isValidEmail(email) {
 }
 
 .container form .submit-btn:hover {
-  background-color: #c47065;  
+  background-color: #c47065;
 }
 
 .container form .submit-btn:active {
